@@ -1,0 +1,3 @@
+git/gitconfig ${HOME}/.gitconfig
+git/gitignore ${HOME}/.config/gitignore
+

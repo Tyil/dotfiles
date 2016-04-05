@@ -1,0 +1,152 @@
+" Load up Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'Align'
+Plugin 'bling/vim-airline'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'gregsexton/gitv'
+Plugin 'junegunn/limelight.vim'
+Plugin 'jwalton512/vim-blade'
+Plugin 'kien/ctrlp.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'mikehaertl/pdv-standalone'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'xolox/vim-misc'
+
+if has('lua')
+	Plugin 'Shougo/neocomplete.vim'
+endif
+call vundle#end()
+
+" Enable syntax-highlighting
+syntax on
+
+" Enable the filetype plugin
+filetype plugin on
+
+" Set colorscheme to 256-colors, and call our cool colorscheme
+if &t_Co > 255
+	colorscheme jellybeans
+endif
+
+if &t_Co == 8
+	colorscheme desert
+endif
+
+" Settings
+set smartindent
+set autoindent
+set cc=120
+set cursorcolumn
+set cursorline
+set clipboard=unnamedplus
+set encoding=utf-8
+set foldmethod=marker
+set hlsearch
+set lazyredraw
+set lcs=tab:╾┄,trail:·,eol:¬
+set list
+set nu
+set numberwidth=5
+set rnu
+set ruler
+set shiftwidth=4
+set showcmd
+set tabstop=4
+set nowrap
+set laststatus=2
+
+let mapleader="\<Space>"
+
+" This would only work properly if the directories would be automatically
+" created
+"set backupdir=~/.cache/vim/backup
+"set directory=~/.cache/vim/temp
+
+" gui specific rice {{{
+if has("gui_running")
+	" set a different colorscheme
+	colorscheme jellybeans
+
+	" always show the tabline
+	set showtabline=2
+
+	" set font
+	set guifont=Inconsolata\ for\ Powerline\ 12
+
+	" remove menus
+"	set guioptions-=m  "remove menu bar
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+endif
+" }}}
+
+" Plugin configurations {{{
+	" Limelight config
+	let g:limelight_conceal_ctermfg = 244
+	au InsertEnter * :Limelight
+	au InsertLeave * :Limelight!
+
+	" NERDTree config
+	let NERDTreeQuitOnOpen=1
+
+	" NeoComplete config
+	let g:neocomplete#enable_at_startup = 1
+	let g:neocomplete#sources#syntax#min_keyword_length = 2
+
+	" NeoSnippet config
+	let g:neosnippet#snippets_directory='~/snippets/'
+
+	" fix for jwalton512/vim-blade
+	autocmd BufNewFile,BufRead *.blade.php set filetype=blade
+" }}}
+
+" Extra configuration
+let g:netrw_ftp_cmd="ftp -p"
+
+" Autocmds
+autocmd QuickFixCmdPre make w
+
+" Autocmds for setting rnu and nu depending on the current mode
+autocmd InsertEnter * :set nornu
+autocmd InsertLeave * :set rnu
+
+" Custom commands
+command! Clearwhitespace :%s/\s\+$//
+command! ToClip :!xclip -sel clip < %:p
+
+" Keybinds
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeMirror<CR>
+nmap <F5> :!make debug clean<CR>
+nmap <F6> :w<CR>:!%:p<CR>
+map <F11> :Clearwhitespace<CR>
+map <C-F5> :cl<CR>
+map <S-c> :w<CR>:ToClip<CR><CR>
+nnoremap <C-i> :<C-u>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" Go to last position when reopening a file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" insert a single character
+function! RepeatChar(char, count)
+	return repeat(a:char, a:count)
+endfunction
+

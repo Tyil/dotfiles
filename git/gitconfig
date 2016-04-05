@@ -1,0 +1,29 @@
+[user]
+	email = p.spek@tyil.nl
+	name  = Patrick Spek
+
+[push]
+	default = simple
+
+[alias]
+	a   = add
+	b   = branch
+	c   = commit -S
+	d   = diff
+	co  = checkout
+	cob = checkout -b
+	l   = log --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(3)%h %C(6)%ad %C(2)%ae %C(4)%G?%Creset %s'
+	p   = push
+	s   = status -s
+	t   = tag -s
+
+[core]
+	pager        = less -R
+	excludesfile = ~/.config/gitignore
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
