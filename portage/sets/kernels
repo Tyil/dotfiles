@@ -1,0 +1,5 @@
+sys-kernel/debian-sources
+sys-kernel/dracut
+sys-kernel/genkernel
+sys-kernel/linux-firmware
+sys-kernel/void-sources-bin

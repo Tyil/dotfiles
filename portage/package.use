@@ -1,0 +1,38 @@
+app-admin/sudo offensive
+app-crypt/gcr gtk
+app-crypt/pinentry gnome-keyring
+app-editors/vim lua
+app-emulation/lxc seccomp cgmanager
+app-emulation/virt-manager gnome-keyring gtk
+app-emulation/vmware-modules -vmci -vsock
+app-office/libreoffice -bluetooth
+app-text/asciidoc python_single_target_python2_7
+dev-lang/php curl mysql pdo postgres
+dev-libs/libpcre pcre16
+dev-libs/qtkeychain qt5
+dev-python/PyQt5 gui network printsupport webkit widgets
+dev-qt/qtwebkit printsupport
+mail-client/mutt gpg
+media-gfx/nomacs -tiff
+media-libs/mesa gles2
+media-plugins/alsa-plugins pulseaudio
+media-sound/pulseaudio alsa alsa-plugins dbus
+media-video/ffmpeg aac amr faac gnutls rtmp threads twolame x264 x265 opus v4l vpx webp
+media-video/mpv archive lua pulseaudio
+media-video/obs-studio pulseaudio
+net-dns/dnsmasq script
+net-misc/spice-gtk usbredir gtk3
+sys-apps/util-linux abi_x86_32
+sys-auth/consolekit gtk pam policykit
+www-client/chromium -hangouts
+www-client/palemoon -alsa -official-branding
+x11-libs/cairo xcb -qt4
+x11-libs/libICE abi_x86_32
+x11-libs/libSM abi_x86_32
+x11-libs/libXmu abi_x86_32
+x11-libs/libXt abi_x86_32
+x11-libs/libxcb xkb
+x11-libs/pango introspection
+x11-terms/rxvt-unicode 256-color alt-font-width -vanilla
+x11-themes/gtk-engines-murrine -themes
+x11-wm/openbox session
