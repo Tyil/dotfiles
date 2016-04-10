@@ -29,7 +29,7 @@ place. Another option would be to use [gohan][gohan] to manage these. This
 repository is created to be used with it. If you use gohan, you can simply
 run
 ```
-gohan fetch https://c.darenet.org/tyil/dotfiles dotfiles-tyil
+gohan fetch https://c.darenet.org/tyil/dotfiles-gohan dotfiles-tyil
 gohan -all install dotfiles-tyil
 ```
 
