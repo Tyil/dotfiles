@@ -1,0 +1,13 @@
+# linux-firmware is damn handy if you want a usable system
+sys-kernel/linux-firmware freedist
+
+# required for xorg-x11
+media-fonts/font-bh-type1 bh-luxi
+media-fonts/font-bh-ttf bh-luxi
+
+# muh games
+games-util/steam-launcher ValveSteamLicense
+
+# sadly required for school
+app-emulation/vmware-player vmware
+app-emulation/vmware-tools  vmware

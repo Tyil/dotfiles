@@ -1,7 +1,6 @@
 net-misc/networkmanager
 net-misc/tor
 net-misc/youtube-dl
-net-p2p/i2p
 net-p2p/transmission
 net-p2p/transmission-remote-cli
 net-proxy/privoxy
