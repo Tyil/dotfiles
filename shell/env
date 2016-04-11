@@ -1,0 +1,103 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+# Set locale
+export LANG="en_US.UTF-8"
+export LESSCHARSET="utf-8"
+
+# enable proxy for this terminal
+$(proxy-toggle on)
+
+# Set favourite applications
+export EDITOR=vim
+
+# set homepage for w3m
+export WWW_HOME=https://duckduckgo.com/
+
+# set history
+export HISTFILE=~/.histfile
+export HISTSIZE=1000
+export SAVEHIST=1000
+
+# set dmenu rice
+export DMENU_OPTS='-i -fn "Liberation Mono:pixelsize=13" -nb "#000" -nf "#fff" -sb "#4c679a" -l 15 -dim 0.5 -o 0.9'
+
+# Set XDG directories
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+export XDG_CONFIG_DIRS="/etc/xdg/"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_TEMPLATES_DIR="${HOME}/templates"
+#export XDG_RUNTIME_DIR=""
+
+# export gpg-agent
+if [ -z "$GPG_AGENT_INFO" ]; then
+	eval $(gpg-agent --daemon)
+fi
+
+# Set JAVA environment
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# Set GO environment
+export GOPATH=~/projects/go
+
+# Perl cpan
+export PERL5LIB="/home/tyil/.local/lib/perl5"
+export PERL_MB_OPT="--install_base \"/home/tyil/.local\""
+export PERL_MM_OPT="INSTALL_BASE=/home/tyil/.local"
+
+# ls colors
+export LS_COLORS="di=34"              # directories
+export LS_COLORS="${LS_COLORS}:fi=0"  # files
+export LS_COLORS="${LS_COLORS}:ln=35" # symlinks
+export LS_COLORS="${LS_COLORS}:pi=0"  # fifo file
+export LS_COLORS="${LS_COLORS}:so=32" # socket files
+export LS_COLORS="${LS_COLORS}:bd=33" # block devices
+export LS_COLORS="${LS_COLORS}:cd=33" # character devices
+export LS_COLORS="${LS_COLORS}:or=37" # orphaned symlinks
+export LS_COLORS="${LS_COLORS}:mi=37" # missing file (referenced to by symlink)
+export LS_COLORS="${LS_COLORS}:ex=31" # executable file
+
+# fix for QT5
+export QT_STYLE_OVERRIDE=GTK+
+
+# Set tabsize in the TTY
+#setterm -regtabs 4
+tabs -4 > /dev/null
+
+# note to self: remove when rtorrent becomes sane or gets replaced
+stty start undef
+stty stop undef
+
+# enable interactive comments in zsh
+set -k
+
+### setting up the tty
+# alter the colors
+echo -en "\e]P0000000" #black
+echo -en "\e]P1CA674A" #darkred
+echo -en "\e]P26BC260" #darkgreen
+echo -en "\e]P3D3A94A" #brown
+echo -en "\e]P44C679A" #darkblue
+echo -en "\e]P59C35AC" #darkmagenta
+echo -en "\e]P66EB5F3" #darkcyan
+echo -en "\e]P7A9A9A9" #lightgrey
+echo -en "\e]P8535551" #darkgrey
+echo -en "\e]P9EA2828" #red
+echo -en "\e]PA87DD32" #green
+echo -en "\e]PBFFC66D" #yellow
+echo -en "\e]PC355DB0" #blue
+echo -en "\e]PD9050D8" #magenta
+echo -en "\e]PE32DDDD" #cyan
+echo -en "\e]PFCCCCCC" #white
+clear                  #for background artifacting
+
+# set default background and text color
+#setterm -background black -foreground green -store
+
+# set the cursor
+#export CURSOR_STYLE="\e[?6;14;9;c"
+

@@ -1,0 +1,96 @@
+[ $DEBUG_DOTFILES ] && echo "Loading .zshrc"
+
+# load the sourcesfile, which in turn will source more functionality
+[ $DEBUG_DOTFILES ] && echo "  Loading ~/.config/shell/sources"
+source ~/.config/shell/sources
+
+# autoload compontents {{{
+[ $DEBUG_DOTFILES ] && echo "  Autoloading components"
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload -U promptinit && promptinit
+# }}}
+
+# set base options {{{
+[ $DEBUG_DOTFILES ] && echo "  Setting base options"
+setopt appendhistory autocd extendedglob histignorespace prompt_subst vi
+unsetopt beep nomatch notify
+# }}}
+
+# vi mode
+[ $DEBUG_DOTFILES ] && echo "  Setting vi-mode"
+bindkey -v
+
+# configure components {{{
+[ $DEBUG_DOTFILES ] && echo "  Setting autocompletions"
+zstyle :compinstall filename '/home/tyil/.zshrc'
+zstyle ':completion:*' menu select
+# }}}
+
+function precmd() # {{{
+{
+	# set window title
+	echo -en "\e]2;`whoami`@`hostname`:`pwd`\a"
+
+	# git info {{{
+	GITBRANCH=$(git status | head -n1 | awk '{print $3}') 2>/dev/null
+
+	if [[ "$GITBRANCH" != "" ]]; then
+		if [[ `git status | tail -n1 | awk '{print $1}'` == "nothing" ]]; then
+			GITBRANCHC="%F{2}"
+		else
+			GITBRANCHC="%F{11}"
+		fi
+
+		PGIT="%F{8}·%f${GITBRANCHC}${GITBRANCH}%f %F{8}»%f"
+	else
+		PGIT=" %F{8}»%f"
+	fi
+	# }}}
+}
+# }}}
+
+# setup vi-mode indicators {{{
+VIMODE_I="%F{13}"
+VIMODE_N="%F{11}"
+VIMODE_U="%F{2}"
+# }}}
+
+# set vimode coloring {{{
+local vi_mode="$VIMODE_I"
+vi_mode_indicator () {
+	case ${KEYMAP} in
+		(vicmd)      echo $VIMODE_N ;;
+		(main|viins) echo $VIMODE_I ;;
+		(*)          echo $VIMODE_U ;;
+	esac
+}
+# }}}
+
+# reset mode-marker and prompt whenever the keymap changes {{{
+function zle-line-init zle-keymap-select {
+	vi_mode="$(vi_mode_indicator)"
+	zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+# }}}
+
+# set the final prompt
+[ $DEBUG_DOTFILES ] && echo "  Setting PS1"
+PROMPT='%(!.%F{1}.%F{2})%n%F{8}@${vi_mode}%M%F{8}:%F{12}%~%k${PGIT}${CURSOR_STYLE} '
+
+# load our keychain if possible {{{
+#[ $DEBUG_DOTFILES ] && echo "  Checking for keychain"
+#if type keychain > /dev/null 2>&1 ; then
+#	[ $DEBUG_DOTFILES ] && echo "  Loading keychain"
+#	keychain -q /home/$USERNAME/.ssh/id_rsa
+#	source /home/$USERNAME/.keychain/$HOST-sh 2> /dev/null
+#else
+#	# the least we can do is to use ssh-agent
+#	# disabled untill I learn to setup this stuff for FreeBSD
+#	#eval `ssh-agent` > /dev/null
+#fi
+# }}}
+

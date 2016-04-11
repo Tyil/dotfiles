@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+# general purpose
+alias ban-ip="ipfw table 1 add"
+alias free="freecolor -m -o"
+alias l="ls -GhIl"
+alias ll="ls -aGhl"
+

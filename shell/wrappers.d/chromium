@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+eval $(proxy-toggle off)
+firejail chromium "$@"
+
