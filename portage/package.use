@@ -18,9 +18,10 @@ media-libs/mesa gles2
 media-plugins/alsa-plugins pulseaudio
 media-sound/pulseaudio alsa alsa-plugins dbus
 media-video/ffmpeg aac amr gnutls rtmp threads twolame x264 x265 opus v4l vpx webp -faac
-media-video/mpv archive lua pulseaudio
+media-video/mpv archive lua pulseaudio -xscreensaver
 media-video/obs-studio pulseaudio
 net-dns/dnsmasq script
+net-misc/i2pd  i2p-hardening
 net-misc/spice-gtk usbredir gtk3
 sys-apps/util-linux abi_x86_32
 sys-auth/consolekit gtk pam policykit
