@@ -12,7 +12,7 @@
 	d   = diff
 	co  = checkout
 	cob = checkout -b
-	l   = log --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(3)%h %C(6)%ad %C(2)%ae %C(4)%G?%Creset %s'
+	l   = log --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(3)%h %C(6)%ad %C(2)%ae %C(4)%G?%Creset %s' --reverse
 	p   = push
 	s   = status -s
 	t   = tag -s
