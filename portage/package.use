@@ -12,6 +12,7 @@ dev-libs/libpcre pcre16
 dev-libs/qtkeychain qt5
 dev-python/PyQt5 gui network printsupport webkit widgets
 dev-qt/qtwebkit printsupport
+dev-ruby/rubygems ruby_targets_ruby21 ruby_targets_ruby20
 mail-client/mutt gpg
 media-gfx/nomacs -tiff
 media-libs/mesa gles2
