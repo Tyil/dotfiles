@@ -69,6 +69,9 @@ let mapleader="\<Space>"
 "set backupdir=~/.cache/vim/backup
 "set directory=~/.cache/vim/temp
 
+" templates
+au BufNewFile *.tex 0r ~/templates/latex/document
+
 " gui specific rice {{{
 if has("gui_running")
 	" set a different colorscheme
