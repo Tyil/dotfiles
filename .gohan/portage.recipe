@@ -1,6 +1,6 @@
 portage/make.conf                /etc/portage/make.conf/00-global.conf
 portage/overlays/sk-overlay.conf /etc/portage/repos.conf/sk-overlay.conf
 portage/package.license          /etc/portage/package.license
-portage/package.use              /etc/portage/package.use
+portage/package.use              /etc/portage/package.use/00-global.use
 portage/sets                     /etc/portage/sets
 portage/world_sets               /var/lib/portage/world_sets
