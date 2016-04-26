@@ -4,6 +4,7 @@ socket-timeout      300
 confdir             /etc/privoxy
 
 # actions
+actionsfile actions/redirect-tor.action
 #actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
 #actionsfile default.action   # Main actions file
 #actionsfile user.action      # User customizations
@@ -13,9 +14,9 @@ filterfile default.filter
 filterfile user.filter
 
 # debugging
-logfile logfile
+logfile privoxy.log
 debug   1024
-logdir  /var/log/privoxy
+logdir  /var/log
 
 # other stuff that was in here which I haven't removed yet
 toggle                                 1

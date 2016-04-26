@@ -1,0 +1,4 @@
+privoxy/actions/redirect-tor.action /etc/privoxy/actions/redirect-tor.action
+privoxy/config /etc/privoxy/config
+tor/torrc /etc/tor/torrc
+

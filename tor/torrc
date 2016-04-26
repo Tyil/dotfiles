@@ -1,0 +1,6 @@
+User tor
+PIDFile /var/run/tor/tor.pid
+Log notice syslog
+DataDirectory /var/lib/tor/data
+RunAsDaemon 1
+
