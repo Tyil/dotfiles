@@ -1,4 +1,4 @@
-{+block}
+{+block +handle-as-image}
 auto.search.msn.com
 sitefinder.verisign.com
 sitefinder-idn.verisign.com
