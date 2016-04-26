@@ -13,6 +13,7 @@ debug 1
 # actions
 actionsfile actions/block-ads.action
 actionsfile actions/block-shocksites.action
+actionsfile actions/block-tracking.action
 actionsfile actions/block-w10.action
 actionsfile actions/redirect-tor.action
 
