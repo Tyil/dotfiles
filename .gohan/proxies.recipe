@@ -1,3 +1,5 @@
+privoxy/actions/block-ads.action /etc/privoxy/actions/block-ads.action
+privoxy/actions/block-w10.action /etc/privoxy/actions/block-w10.action
 privoxy/actions/redirect-tor.action /etc/privoxy/actions/redirect-tor.action
 privoxy/config /etc/privoxy/config
 tor/torrc /etc/tor/torrc
