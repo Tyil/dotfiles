@@ -10,15 +10,17 @@ logfile privoxy.log
 # debugging
 debug 1
 
+# filters
+filterfile filters/default.filter
+
 # actions
 actionsfile actions/block-ads.action
 actionsfile actions/block-malware.action
 actionsfile actions/block-shocksites.action
 actionsfile actions/block-tracking.action
 actionsfile actions/block-w10.action
+actionsfile actions/paranoia.action
 actionsfile actions/redirect-tor.action
-
-# filters
 
 # default routing rule
 forward-socks5 / 127.0.0.1:9050 .  # route everything through tor
