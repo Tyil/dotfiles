@@ -1,1 +1,3 @@
-portage-wine/package.use /etc/portage/package.use/20-wine.use
+files: [
+  ["portage-wine/package.use", "/etc/portage/package.use/20-wine.use"],
+]

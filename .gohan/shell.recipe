@@ -1,9 +1,12 @@
-shell/aliases	${HOME}/.config/shell/aliases
-shell/env	${HOME}/.config/shell/env
-shell/sources ${HOME}/.config/shell/sources
+files: [
+  ["shell/aliases", "${HOME}/.config/shell/aliases"],
+  ["shell/env", "${HOME}/.config/shell/env"],
+  ["shell/sources", "${HOME}/.config/shell/sources"],
 
-shell/aliases.d	${HOME}/.config/shell/aliases.d
-shell/wrappers.d	${HOME}/.config/shell/wrappers.d
-shell/wrappers-linux-funtoo.d	${HOME}/.config/shell/wrappers-linux-funtoo.d
+  ["shell/aliases.d", "${HOME}/.config/shell/aliases.d"],
+  ["shell/wrappers.d", "${HOME}/.config/shell/wrappers.d"],
+  ["shell/wrappers-linux-funtoo.d", "${HOME}/.config/shell/wrappers-linux-funtoo.d"],
 
-shell/zshrc	${HOME}/.zshrc
+  ["shell/zshrc", "${HOME}/.zshrc"],
+]
+
