@@ -4,6 +4,5 @@ files: [
   ["portage/package.license", "/etc/portage/package.license"],
   ["portage/package.use", "/etc/portage/package.use/00-global.use"],
   ["portage/sets", "/etc/portage/sets"],
-  ["portage/world_sets", "/var/lib/portage/world_sets"],
 ]
 
