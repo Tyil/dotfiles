@@ -24,6 +24,7 @@ media-video/mpv archive lua pulseaudio -xscreensaver
 media-video/obs-studio pulseaudio
 net-dns/dnsmasq script
 net-misc/i2pd  i2p-hardening
+net-misc/spice-gtk python_single_target_python2_7 -python_single_target_python3_4
 net-misc/spice-gtk usbredir gtk3
 sys-apps/util-linux abi_x86_32
 sys-auth/consolekit gtk pam policykit
