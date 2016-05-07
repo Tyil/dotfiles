@@ -1,11 +1,11 @@
-+change-x-forwarded-for{block}
-+hide-user-agent{Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36}
-+limit-cookie-lifetime{60}
-+filter{webbugs}
-+filter{jumping-windows}
-+filter{shockwave-flash}
-+filter{quicktime-kioskmode}
-+filter{ie-exploits}
-+filter{no-ping}
+{+change-x-forwarded-for{block}}
+{+hide-user-agent{Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36}}
+{+limit-cookie-lifetime{60}}
+{+filter{webbugs}}
+{+filter{jumping-windows}}
+{+filter{shockwave-flash}}
+{+filter{quicktime-kioskmode}}
+{+filter{ie-exploits}}
+{+filter{no-ping}}
 /
 
