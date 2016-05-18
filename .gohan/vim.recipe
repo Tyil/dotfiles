@@ -1,2 +1,4 @@
-vim ${HOME}/.vim
+files: [
+  ["vim", "${HOME}/.vim"],
+]
 

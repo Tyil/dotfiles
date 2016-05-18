@@ -1,0 +1,17 @@
+options:
+  permissions: 0644
+  owner: privoxy
+  group: privoxy
+files: [
+  ["privoxy/actions/block-ads.action", "/etc/privoxy/actions/block-ads.action"],
+  ["privoxy/actions/block-malware.action", "/etc/privoxy/actions/block-malware.action"],
+  ["privoxy/actions/block-shocksites.action", "/etc/privoxy/actions/block-shocksites.action"],
+  ["privoxy/actions/block-tracking.action", "/etc/privoxy/actions/block-tracking.action"],
+  ["privoxy/actions/block-w10.action", "/etc/privoxy/actions/block-w10.action"],
+  ["privoxy/actions/redirect-tor.action", "/etc/privoxy/actions/redirect-tor.action"],
+  ["privoxy/actions/paranoia.action", "/etc/privoxy/actions/paranoia.action"],
+  ["privoxy/config", "/etc/privoxy/config"],
+  ["privoxy/filters/default.filter", "/etc/privoxy/filters/default.filter"],
+  ["tor/torrc", "/etc/tor/torrc", {owner: "root", group: "root"}],
+]
+

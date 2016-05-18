@@ -1,39 +1,29 @@
-listen-address      127.0.0.1:8118
-tolerate-pipelining 1
-socket-timeout      300
-confdir             /etc/privoxy
+# connection
+listen-address  127.0.0.1:8118
 
-# actions
-#actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
-#actionsfile default.action   # Main actions file
-#actionsfile user.action      # User customizations
-
-# filters
-filterfile default.filter
-filterfile user.filter
+# file locations
+user-manual /usr/share/doc/privoxy-3.0.24/user-manual/
+confdir /etc/privoxy
+logdir /var/log/privoxy
+logfile privoxy.log
 
 # debugging
-logfile logfile
-debug   1024
-logdir  /var/log/privoxy
+debug 1
 
-# other stuff that was in here which I haven't removed yet
-toggle                                 1
-enable-remote-toggle                   0
-enable-remote-http-toggle              0
-enable-edit-actions                    0
-enforce-blocks                         0
-buffer-limit                           4096
-enable-proxy-authentication-forwarding 0
-forwarded-connect-retries              0
-accept-intercepted-requests            0
-allow-cgi-request-crunching            0
-split-large-forms                      0
-keep-alive-timeout                     5
-user-manual                            /usr/share/doc/privoxy/user-manual
+# filters
+filterfile filters/default.filter
 
-# unmatching requests go through tor
-forward-socks5 / 127.0.0.1:9050 .
+# actions
+actionsfile actions/block-ads.action
+actionsfile actions/block-malware.action
+actionsfile actions/block-shocksites.action
+actionsfile actions/block-tracking.action
+actionsfile actions/block-w10.action
+actionsfile actions/paranoia.action
+actionsfile actions/redirect-tor.action
+
+# default routing rule
+forward-socks5 / 127.0.0.1:9050 .  # route everything through tor
 
 # force clearnet domains
 forward .belastingdienst.nl/ .
@@ -42,20 +32,27 @@ forward .shura.tyil.net/ .
 forward .twitch.tv/ .
 forward .what.cd/ .
 
-# force tor domains
-
-# do not route private ranges through the proxy
+# exclude private ranges
 forward 192.168.*.*/ .
 forward 10.*.*.*/    .
 forward 127.*.*.*/   .
 
-# route personal machines
-forward localhost/ .
-forward kurbie/    192.168.178.10
-forward sessifet/  192.168.178.11
-forward krata/     192.168.178.12
-
-# route proxy-specific TLDs
+# forward proxy-specific TLDs
 forward        .i2p   127.0.0.1:4444
 forward-socks5 .onion 127.0.0.1:9050 .
 
+# fixme: check what this does and how this could be improved
+toggle  1
+enable-remote-toggle  0
+enable-remote-http-toggle  0
+enable-edit-actions 0
+enforce-blocks 0
+buffer-limit 4096
+enable-proxy-authentication-forwarding 0
+forwarded-connect-retries  0
+accept-intercepted-requests 0
+allow-cgi-request-crunching 0
+split-large-forms 0
+keep-alive-timeout 5
+tolerate-pipelining 1
+socket-timeout 300

@@ -7,6 +7,7 @@ media-fonts/font-bh-ttf bh-luxi
 
 # muh games
 games-util/steam-launcher ValveSteamLicense
+games-misc/opensfx CC-Sampling-Plus-1.0
 
 # sadly required for school
 app-emulation/vmware-player vmware
