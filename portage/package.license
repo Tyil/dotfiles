@@ -11,3 +11,6 @@ games-util/steam-launcher ValveSteamLicense
 # sadly required for school
 app-emulation/vmware-player vmware
 app-emulation/vmware-tools  vmware
+
+# proprietary drivers
+x11-drivers/ati-drivers AMD
