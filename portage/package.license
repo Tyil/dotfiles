@@ -12,3 +12,6 @@ games-misc/opensfx CC-Sampling-Plus-1.0
 # sadly required for school
 app-emulation/vmware-player vmware
 app-emulation/vmware-tools  vmware
+
+# proprietary drivers
+x11-drivers/ati-drivers AMD
