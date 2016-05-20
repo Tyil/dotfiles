@@ -18,6 +18,7 @@ mail-client/mutt gpg
 media-gfx/nomacs -tiff
 media-libs/mesa gles2
 media-plugins/alsa-plugins pulseaudio
+media-sound/flacon qt5 -aac
 media-sound/pulseaudio alsa alsa-plugins dbus
 media-video/ffmpeg aac amr gnutls rtmp threads twolame x264 x265 opus v4l vpx webp -faac
 media-video/mpv archive lua pulseaudio -xscreensaver
