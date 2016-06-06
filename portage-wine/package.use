@@ -2,10 +2,12 @@ dev-libs/gmp abi_x86_32
 dev-libs/json abi_x86_32
 dev-libs/json-c abi_x86_32
 dev-libs/libgcrypt abi_x86_32
+dev-libs/libgcrypt-compat abi_x86_32
 dev-libs/libgpg-error abi_x86_32
 dev-libs/libtasn1 abi_x86_32
 dev-libs/libxslt abi_x86_32
 dev-libs/nettle abi_x86_32
+dev-libs/openssl abi_x86_32
 media-libs/alsa-lib abi_x86_32
 media-libs/flac abi_x86_32
 media-libs/lcms abi_x86_32
@@ -27,6 +29,8 @@ virtual/libintl abi_x86_32
 x11-libs/libXcomposite abi_x86_32
 x11-libs/libXcursor abi_x86_32
 x11-libs/libXtst abi_x86_32
+x11-libs/libXv abi_x86_32
+x11-misc/virtualgl abi_x86_32
 x11-proto/compositeproto abi_x86_32
 x11-proto/recordproto abi_x86_32
-
+x11-proto/videoproto abi_x86_32
