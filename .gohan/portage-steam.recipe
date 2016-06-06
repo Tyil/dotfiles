@@ -1,3 +1,5 @@
 files: [
+  ["portage-steam/overlay.conf", "/etc/portage/repos.conf/steam-overlay.conf"],
   ["portage-steam/package.use", "/etc/portage/package.use/20-steam.use"],
+  ["portage-steam/steam.set", "/etc/portage/sets/steam"],
 ]
