@@ -4,5 +4,5 @@
 eval $(proxy-toggle off)
 
 # start emacs
-emacs
+/usr/bin/emacs
 
