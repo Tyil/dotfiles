@@ -1,6 +1,7 @@
 app-admin/sudo offensive
 app-crypt/gcr gtk
 app-crypt/pinentry gnome-keyring
+app-editors/emacs libxml2 xft -alsa -dbus
 app-editors/vim lua
 app-emulation/lxc seccomp cgmanager
 app-emulation/virt-manager gnome-keyring gtk
