@@ -14,4 +14,7 @@ app-emulation/vmware-player vmware
 app-emulation/vmware-tools  vmware
 
 # proprietary drivers
+media-gfx/nvidia-cg-toolkit NVIDIA-r1
 x11-drivers/ati-drivers AMD
+x11-drivers/nvidia-drivers NVIDIA-r2
+
