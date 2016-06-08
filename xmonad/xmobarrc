@@ -9,6 +9,6 @@ Config { font = "xft:Liberation Mono:size=10:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %cpu% ║ %memory% ║ %swap% ║ %date%"
+       , template = " %StdinReader% }{ %cpu% ║ %memory% ║ %swap% ║ %date% "
 }
 
