@@ -27,15 +27,13 @@ myManageHook = composeAll
 
 myWorkspaces = ["work", "social", "web", "entertainment", "games", "6", "7", "8", "9"]
 
--- dzen
-myDzenStatus = "dzen2 -x '0' -w 1920 -ta 'l'" ++ myDzenStyle
-myDzenStyle  = " -y '0' -fg '#777777' -bg '#222222' -fn 'Liberation Mono-10'"
-myDzenPP  = dzenPP
-    { ppCurrent = dzenColor "#000000" "#5778c1" . wrap " " " "
-    , ppVisible = dzenColor "#000000" "#96a967" . wrap " " " "
-    , ppHidden  = dzenColor "#ffffff" "" . wrap " " " "
-    , ppHiddenNoWindows = dzenColor "#999999" "" . wrap " " " "
-    , ppUrgent  = dzenColor "#ff0000" "" . wrap " " " "
+-- xmobar
+myXmobarPP  = xmobarPP
+    { ppCurrent = xmobarColor "#000000" "#5778c1" . wrap " " " "
+    , ppVisible = xmobarColor "#000000" "#96a967" . wrap " " " "
+    , ppHidden  = xmobarColor "#ffffff" "" . wrap " " " "
+    , ppHiddenNoWindows = xmobarColor "#999999" "" . wrap " " " "
+    , ppUrgent  = xmobarColor "#ff0000" "" . wrap " " " "
     , ppSep     = " ║ "
     , ppLayout = \y -> "" -- hide layout indicator
 --    , ppLayout  = ( \t -> case t of
@@ -44,12 +42,12 @@ myDzenPP  = dzenPP
 --                    "Circle" -> " CIRC "
 --                    _ -> " WHO KNOWS "
 --                  )
-    , ppTitle   = dzenColor "#ffffff" "" . wrap " " " "
+    , ppTitle   = xmobarColor "#ffffff" "" . wrap " " " "
     }
-myLogHook h = dynamicLogWithPP $ myDzenPP { ppOutput = hPutStrLn h }
+myLogHook h = dynamicLogWithPP $ myXmobarPP { ppOutput = hPutStrLn h }
 
 main = do
-  status <- spawnPipe myDzenStatus
+  xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
   xmonad $ defaultConfig
          { focusedBorderColor = "#5778c1"
          , normalBorderColor  = "#393939"
@@ -57,7 +55,8 @@ main = do
          , manageHook = manageDocks <+> myManageHook
                         <+> manageHook defaultConfig
          , layoutHook = avoidStruts $ windowArrange myLayoutHook
-         , logHook    = myLogHook status
+         , logHook    = dynamicLogWithPP myXmobarPP
+           { ppOutput = hPutStrLn xmproc }
          , terminal   = "urxvt"
          , workspaces = myWorkspaces
          } `additionalKeys`
