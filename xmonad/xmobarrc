@@ -1,0 +1,14 @@
+Config { font = "xft:Liberation Mono:size=10:antialias=true"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , commands = [ Run Cpu [ "-L", "3", "-H", "50", "--normal", "green", "--high", "red" ] 10
+                    , Run Memory [ "-t", "Mem: <usedratio>%" ] 10, Run Swap [] 10
+                    , Run Date "%Y-%m-%d %H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %cpu% ║ %memory% ║ %swap% ║ %date%"
+}
+
