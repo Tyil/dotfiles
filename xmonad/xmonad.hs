@@ -25,7 +25,7 @@ myLayoutHook = Circle
                ||| noBorders (fullscreenFull Full)
 
 myManageHook = composeAll
-             [ className =? "Gimp" --> doFloat
+             [ className =? "explorer.exe" --> doFloat
              ]
 
 myWorkspaces = ["work", "social", "web", "entertainment", "games", "6", "7", "8", "9"]
@@ -88,13 +88,13 @@ main = do
                   ++
                   -- switch focus to workspace
                   [((m .|. modMask, k), windows $ f i)
-                      | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-                      , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+                    | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+                    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
                   ++
                   -- switch focus to screen and move client to screen
                   [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
-                      | (key, sc) <- zip [xK_q, xK_w, xK_e] [0..]
-                      , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+                    | (key, sc) <- zip [xK_q, xK_w, xK_e] [0..]
+                    , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
          , layoutHook = avoidStruts $ windowArrange myLayoutHook
          , logHook    = dynamicLogWithPP myXmobarPP
            { ppOutput = hPutStrLn xmproc }
