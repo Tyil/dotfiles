@@ -1,4 +1,5 @@
 files: [
+  ["xmonad/xmonad.xinitrc", "${HOME}/.xinit/xmonad.rc"],
   ["xmonad/xmonad.hs", "${HOME}/.xmonad/xmonad.hs"],
   ["xmonad/xmobarrc", "${HOME}/.xmonad/xmobarrc"],
   ["xmonad/Xresources", "${HOME}/.Xresources"],
