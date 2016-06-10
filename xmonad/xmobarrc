@@ -12,6 +12,6 @@ Config { font = "xft:Liberation Mono:size=10:antialias=true"
                     ]
        , sepChar = "$"
        , alignSep = "}{"
-       , template = " $StdinReader$ }{ $dynnetwork$ ║ $mpd$ ║ $volume$ ║ $cpu$ ║ RAM: $memory$ ║ $date$ "
+       , template = " $StdinReader$ }$date${ $dynnetwork$ ║ $mpd$ ║ $volume$ ║ $cpu$ ║ RAM: $memory$ "
        }
 

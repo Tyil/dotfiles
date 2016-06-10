@@ -28,24 +28,19 @@ myManageHook = composeAll
              [ className =? "explorer.exe" --> doFloat
              ]
 
-myWorkspaces = ["work", "social", "web", "entertainment", "games", "6", "7", "8", "9"]
+myWorkspaces = ["work", "social", "web", "entertainment", "games", "six", "seven", "eight", "nine"]
 
 -- xmobar
 myXmobarPP  = xmobarPP
-    { ppCurrent = xmobarColor "#6eb5f3" "" . wrap " " " "
-    , ppVisible = xmobarColor "#96a967" "" . wrap " " " "
-    , ppHidden  = xmobarColor "#ffffff" "" . wrap " " " "
+    { ppCurrent         = xmobarColor "#6eb5f3" "" . wrap " " " "
+    , ppVisible         = xmobarColor "#96a967" "" . wrap " " " "
+    , ppHidden          = xmobarColor "#ffffff" "" . wrap " " " "
     , ppHiddenNoWindows = xmobarColor "#999999" "" . wrap " " " "
-    , ppUrgent  = xmobarColor "#ff0000" "" . wrap " " " "
-    , ppSep     = " ║ "
-    , ppLayout = \y -> "" -- hide layout indicator
---    , ppLayout  = ( \t -> case t of
---                    "Spacing 2 ResizableTall" -> " TALL "
---                    "Full" -> " FULL "
---                    "Circle" -> " CIRC "
---                    _ -> " WHO KNOWS "
---                  )
-    , ppTitle   = xmobarColor "#ffffff" "" . wrap " " " "
+    , ppUrgent          = xmobarColor "#ff0000" "" . wrap " " " "
+    , ppSep             = " ║ "
+    , ppLayout          = \y -> "" -- hide layout indicator
+    , ppWsSep           = ""       -- no seperator between layouts
+    , ppTitle           = \y -> "" -- hide window title
     }
 
 main = do
