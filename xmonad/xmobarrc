@@ -2,16 +2,16 @@ Config { font = "xft:Liberation Mono:size=10:antialias=true"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
-       , commands = [ Run Cpu [ "-t", "CPU: <fc=#ffffff><total></fc>%" ] 10
-                    , Run Memory [ "-t", "<fc=#ffffff><usedratio></fc>%" ] 10
+       , commands = [ Run Cpu [ "-t", "cpu: <fc=#ffffff><total></fc>%" ] 10
+                    , Run Memory [ "-t", "ram: <fc=#ffffff><usedratio></fc>%" ] 10
                     , Run Date "%Y-%m-%d <fc=#ffffff>%H:%M</fc>" "date" 10
                     , Run DynNetwork [ "-t", "<dev>: <fc=#ffffff><tx></fc>kB/<fc=#ffffff><rx></fc>kB" ] 10
                     , Run Volume "default" "Master" [ "-t", "<fc=#ffffff><volume></fc>% <status>" ] 10
-                    , Run MPD [ "-t", "MPD: <fc=#ffffff><artist></fc> - <fc=#ffffff><title></fc>" ] 10
+                    , Run MPD [ "-t", "mpd: <fc=#ffffff><artist></fc> - <fc=#ffffff><title></fc>" ] 10
                     , Run StdinReader
                     ]
        , sepChar = "$"
        , alignSep = "}{"
-       , template = " $StdinReader$ }$date${ $dynnetwork$ ║ $mpd$ ║ $volume$ ║ $cpu$ ║ RAM: $memory$ "
+       , template = " $StdinReader$ }$date${ $dynnetwork$ ║ $mpd$ ║ $volume$ ║ $cpu$ ║ $memory$ "
        }
 
