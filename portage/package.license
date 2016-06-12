@@ -13,6 +13,9 @@ games-misc/opensfx CC-Sampling-Plus-1.0
 app-emulation/vmware-player vmware
 app-emulation/vmware-tools  vmware
 
+# disgusting flash since some twitch streams simply lagg in mpv, even on a 500mbit line
+www-plugins/chrome-binary-plugins google-chrome
+
 # proprietary drivers
 media-gfx/nvidia-cg-toolkit NVIDIA-r1
 sys-firmware/radeon-ucode radeon-ucode

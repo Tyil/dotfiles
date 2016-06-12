@@ -33,6 +33,7 @@ sys-apps/util-linux abi_x86_32
 sys-auth/consolekit gtk pam policykit
 www-client/chromium -hangouts -proprietary-codecs
 www-client/palemoon -alsa -official-branding
+www-plugins/chrome-binary-plugins -widevine
 x11-libs/cairo xcb -qt4
 x11-libs/libICE abi_x86_32
 x11-libs/libSM abi_x86_32
