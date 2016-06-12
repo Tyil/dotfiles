@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.Circle
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Gaps
@@ -21,7 +22,7 @@ myLayoutHook = Circle
                          , (R, 16)
                          , (L, 16)
                          , (D, 16)
-                         ] $ avoidStruts (spacing 2 $ ResizableTall 1 (2/100) (1/2) []))
+                         ] $ (spacing 2 $ ResizableTall 1 (2/100) (1/2) []))
                ||| noBorders (fullscreenFull Full)
 
 myManageHook = composeAll
@@ -45,7 +46,8 @@ myXmobarPP  = xmobarPP
 
 main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
-  xmonad $ defaultConfig
+  xmonad $ withUrgencyHook NoUrgencyHook
+         $ defaultConfig
          { focusedBorderColor = "#5778c1"
          , normalBorderColor  = "#393939"
          , modMask    = mod4Mask
