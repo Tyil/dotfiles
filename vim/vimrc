@@ -61,6 +61,7 @@ set showcmd
 set tabstop=4
 set nowrap
 set laststatus=2
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
 
 let mapleader="\<Space>"
 
