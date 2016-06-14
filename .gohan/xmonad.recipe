@@ -1,4 +1,5 @@
 files: [
+  ["commander.ini", "${HOME}/.config/commander.ini"],
   ["sxhkdrc", "${HOME}/.config/sxhkd/sxhkdrc"],
   ["xmonad/xmonad.xinitrc", "${HOME}/.xinit/xmonad.rc"],
   ["xmonad/xmonad.hs", "${HOME}/.xmonad/xmonad.hs"],
