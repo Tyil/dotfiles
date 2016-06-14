@@ -1,0 +1,35 @@
+# spawn applications
+super + Return
+	urxvtc
+
+super + d
+	commander-run
+
+# multimedia keys
+XF86Audio{Play,Stop,Prev,Next}
+	mpc -q {toggle,stop,prev,next}
+
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume 2 {+,-}5%
+
+XF86AudioMute
+	pactl set-sink-mute 2 toggle
+
+XF86MonBrightness{Up,Down}
+	xbacklinx {+,-}5%
+
+# lock screen
+super + shift + s
+	i3lock -c 000000
+
+# printscreens
+Print
+	sscrot
+
+shift + Print
+	wscrot
+
+# make sxhkd reload its configuration files:
+#super + shift + r
+#	pkill -USR1 -x sxhkd
+
