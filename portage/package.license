@@ -21,3 +21,7 @@ media-gfx/nvidia-cg-toolkit NVIDIA-r1
 sys-firmware/radeon-ucode radeon-ucode
 x11-drivers/ati-drivers AMD
 x11-drivers/nvidia-drivers NVIDIA-r2
+
+# people using silly proprietary archive formats
+app-arch/unrar unRAR
+
