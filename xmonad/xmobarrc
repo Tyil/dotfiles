@@ -7,11 +7,10 @@ Config { font = "xft:Liberation Mono:size=10:antialias=true"
                     , Run Date "%Y-%m-%d <fc=#ffffff>%H:%M</fc>" "date" 10
                     , Run DynNetwork [ "-t", "<dev>: <fc=#ffffff><tx></fc>kB/<fc=#ffffff><rx></fc>kB" ] 10
                     , Run Volume "default" "Master" [ "-t", "volume: <fc=#ffffff><volume></fc>%" ] 10
-                    , Run MPD [ "-t", "mpd: <fc=#ffffff><artist></fc> - <fc=#ffffff><title></fc>" ] 10
                     , Run StdinReader
                     ]
        , sepChar = "$"
        , alignSep = "}{"
-       , template = " $StdinReader$ }$date${ $dynnetwork$ ║ $mpd$ ║ $default:Master$ ║ $cpu$ ║ $memory$ "
+       , template = " $StdinReader$ }$date${ $dynnetwork$ ║ $default:Master$ ║ $cpu$ ║ $memory$ "
        }
 
