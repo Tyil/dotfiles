@@ -31,6 +31,7 @@ net-misc/spice-gtk python_single_target_python2_7 -python_single_target_python3_
 net-misc/spice-gtk usbredir gtk3
 sys-apps/util-linux abi_x86_32
 sys-auth/consolekit gtk pam policykit
+sys-kernel/void-sources-bin dracut
 www-client/chromium -hangouts -proprietary-codecs
 www-client/palemoon -alsa -official-branding
 www-plugins/chrome-binary-plugins -widevine
