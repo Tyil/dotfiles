@@ -1,5 +1,6 @@
 files: [
   ["commander.ini", "${HOME}/.config/commander.ini"],
+  ["dunstrc", "${HOME}/.config/dunst/dunstrc"],
   ["sxhkdrc", "${HOME}/.config/sxhkd/sxhkdrc"],
   ["xmonad/xmonad.xinitrc", "${HOME}/.xinit/xmonad.rc"],
   ["xmonad/xmonad.hs", "${HOME}/.xmonad/xmonad.hs"],
