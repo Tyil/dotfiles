@@ -6,6 +6,7 @@ app-editors/vim lua
 app-emulation/lxc seccomp cgmanager
 app-emulation/virt-manager gnome-keyring gtk
 app-emulation/vmware-modules -vmci -vsock
+app-misc/tmux vim-syntax
 app-office/libreoffice -bluetooth
 app-text/asciidoc python_single_target_python2_7
 dev-lang/mono minimal
