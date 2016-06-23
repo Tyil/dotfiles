@@ -1,7 +1,7 @@
 app-misc/twitch-cli
 media-libs/gstreamer
 media-plugins/mediastreamer-x264
-media-sound/alsautils
+media-sound/alsa-utils
 media-sound/mpc
 media-sound/mpd
 media-sound/ncmpc
