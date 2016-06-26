@@ -5,6 +5,7 @@ app-editors/emacs libxml2 xft -alsa -dbus
 app-editors/vim lua
 app-emulation/libvirt lvm -policykit
 app-emulation/lxc seccomp cgmanager
+app-emulation/qemu spice
 app-emulation/virt-manager gnome-keyring gtk
 app-emulation/vmware-modules -vmci -vsock
 app-misc/tmux vim-syntax
