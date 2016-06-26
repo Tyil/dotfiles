@@ -7,6 +7,7 @@ import XMonad.Layout.Fullscreen
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spacing
 import XMonad.Layout.WindowArranger
 import XMonad.Util.EZConfig(additionalKeys)
@@ -18,15 +19,24 @@ import System.Exit
 import System.IO
 
 myLayoutHook = Circle
-               ||| (gaps [ (U, 16)
-                         , (R, 16)
-                         , (L, 16)
-                         , (D, 16)
-                         ] $ (spacing 2 $ ResizableTall 1 (2/100) (1/2) []))
+               ||| (gaps [ (U, 8)
+                         , (R, 8)
+                         , (L, 8)
+                         , (D, 8)
+                         ] $ (spacing 4 $ ResizableTall 1 (2/100) (0.6) []))
                ||| noBorders (fullscreenFull Full)
+               ||| simplestFloat
 
 myManageHook = composeAll
-             [ className =? "explorer.exe" --> doFloat
+             [ className =? "Pale moon" --> doShift "web"
+             , className =? "chromium-browser-chromium" --> doShift "web"
+             , className =? "Steam" --> doShift "games"
+             , className =? "dota2" --> doShift "games"
+             , className =? "jetbrains-idea" --> doShift "work"
+             , className =? "mpv" --> doFloat
+             , className =? "mumble" --> doShift "social"
+             , className =? "qutebrowser" --> doShift "web"
+             , appName   =? "urxvt_ncmpc" --> doShift "entertainment"
              ]
 
 myWorkspaces = ["work", "social", "web", "entertainment", "games", "six", "seven", "eight", "nine"]
@@ -46,13 +56,13 @@ myXmobarPP  = xmobarPP
 
 main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
-  xmonad $ withUrgencyHook NoUrgencyHook
-         $ defaultConfig
+  xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
          { focusedBorderColor = "#5778c1"
          , normalBorderColor  = "#393939"
          , modMask    = mod4Mask
          , manageHook = manageDocks <+> myManageHook
                         <+> manageHook defaultConfig
+         , handleEventHook = docksEventHook <+> handleEventHook defaultConfig
          , keys = \conf@(XConfig { XMonad.modMask = modMask }) -> M.fromList $
                   [ ((modMask, xK_x     ), kill) -- %! Close the focused window
                   , ((modMask, xK_space ), sendMessage NextLayout) -- %! Rotate through the available layout algorithms
