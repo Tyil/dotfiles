@@ -67,6 +67,7 @@ main = do
                   [ ((modMask, xK_x     ), kill) -- %! Close the focused window
                   , ((modMask, xK_space ), sendMessage NextLayout) -- %! Rotate through the available layout algorithms
                   , ((modMask, xK_n     ), refresh) -- %! Resize viewed windows to the correct size
+                  , ((modMask, xK_b     ), sendMessage ToggleStruts)
 
                   -- move focus up or down the window stack
                   , ((modMask, xK_j ), windows W.focusDown) -- %! Move focus to the next window
