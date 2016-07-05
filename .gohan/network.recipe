@@ -6,6 +6,7 @@ files: [
   # dnsmasq
   ["dnsmasq/dnsmasq.conf", "/etc/dnsmasq.conf"],
   ["dnsmasq/names/skvpn.conf", "/etc/dnsmasq.d/names/skvpn.conf"],
+  ["dnsmasq/names/tyilvpn.conf", "/etc/dnsmasq.d/names/tyilvpn.conf"],
 
   # privoxy
   ["privoxy/actions/block-ads.action", "/etc/privoxy/actions/block-ads.action", {owner: "privoxy", group: "privoxy"}],
