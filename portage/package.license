@@ -12,6 +12,7 @@ games-misc/opensfx CC-Sampling-Plus-1.0
 # sadly required for school
 app-emulation/vmware-player vmware
 app-emulation/vmware-tools  vmware
+dev-util/idea-ultimate IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal
 
 # disgusting flash since some twitch streams simply lagg in mpv, even on a 500mbit line
 www-plugins/chrome-binary-plugins google-chrome
