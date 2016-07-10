@@ -6,6 +6,7 @@ import XMonad.Layout.Circle
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
+import XMonad.Layout.PerWorkspace
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spacing
@@ -18,14 +19,24 @@ import qualified XMonad.StackSet as W
 import System.Exit
 import System.IO
 
-myLayoutHook = Circle
-               ||| (gaps [ (U, 8)
-                         , (R, 8)
-                         , (L, 8)
-                         , (D, 8)
-                         ] $ (spacing 4 $ ResizableTall 1 (2/100) (0.6) []))
-               ||| noBorders (fullscreenFull Full)
-               ||| simplestFloat
+-- layout definitions
+myLayoutGaps =
+    ( gaps [ (U, 8)
+           , (R, 8)
+           , (L, 8)
+           , (D, 8)
+           ] $ (spacing 4 $ ResizableTall 1 (2/100) (0.65) [])
+    )
+myLayoutCircle = Circle
+myLayoutFullscreen = noBorders (fullscreenFull Full)
+myLayoutFloat = simplestFloat
+
+myLayoutHook = onWorkspace "work" myLayoutGaps $
+               onWorkspace "social" myLayoutCircle $
+               onWorkspace "web" (myLayoutFullscreen ||| myLayoutGaps) $
+               onWorkspace "entertainment" myLayoutFullscreen $
+               onWorkspace "games" myLayoutFloat $
+               (myLayoutCircle ||| myLayoutFullscreen)
 
 myManageHook = composeAll
              [ className =? "Pale moon" --> doShift "web"
