@@ -22,6 +22,7 @@ mail-client/mutt gpg
 media-gfx/nomacs -tiff
 media-libs/mesa gles2
 media-sound/flacon qt5 -aac
+media-sound/mpd opus
 media-sound/ncmpcpp visualizer
 media-video/ffmpeg aac amr gnutls rtmp threads twolame x264 x265 opus v4l vpx webp -faac
 media-video/mpv archive lua -xscreensaver
