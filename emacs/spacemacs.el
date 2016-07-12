@@ -28,7 +28,7 @@
    dotspacemacs-additional-packages
    '(
      editorconfig
-     smart-tabs-mode
+     ;smart-tabs-mode
      )
    dotspacemacs-excluded-packages '()
    dotspacemacs-delete-orphan-packages t))
@@ -236,7 +236,7 @@ values."
 
   ; indentation rules
   ;(indent-tabs-mode 't)
-  (smart-tabs-insinuate 'c 'javascript)
+  ;(smart-tabs-insinuate 'c 'javascript)
 
   ; set relative line numbers
   (add-hook 'prog-mode-hook #'linum-mode)
