@@ -1,3 +1,8 @@
+scripts:
+  before:
+    - ".scripts/install-spacemacs.sh"
+  after:
+    - ".scripts/install-vim-vundle.sh"
 files: [
   # emacs
   ["emacs/spacemacs.el", "${HOME}/.spacemacs.d/init.el"],
