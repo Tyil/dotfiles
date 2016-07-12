@@ -1,0 +1,8 @@
+files: [
+  # emacs
+  ["emacs/spacemacs.el", "${HOME}/.spacemacs.d/init.el"],
+
+  # vim
+  ["vim", "${HOME}/.vim"],
+]
+

@@ -1,4 +1,0 @@
-files: [
-  ["vim", "${HOME}/.vim"],
-]
-
