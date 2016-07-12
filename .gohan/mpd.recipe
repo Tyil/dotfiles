@@ -1,0 +1,4 @@
+files: [
+  ["mpd/mpd.conf", "${HOME}/.config/mpd/mpd.conf"],
+]
+
