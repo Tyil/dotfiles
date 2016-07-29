@@ -68,7 +68,8 @@ myXmobarPP  = xmobarPP
 main = do
   xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
   xmonad $ withUrgencyHook NoUrgencyHook defaultConfig
-         { focusedBorderColor = "#5778c1"
+         { borderWidth = 2
+         , focusedBorderColor = "#5778c1"
          , normalBorderColor  = "#393939"
          , modMask    = mod4Mask
          , manageHook = manageDocks <+> myManageHook
