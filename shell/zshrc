@@ -20,6 +20,13 @@ unsetopt beep nomatch notify
 # vi mode
 [ $DEBUG_DOTFILES ] && echo "  Setting vi-mode"
 bindkey -v
+bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^b' backward-char
+bindkey -M viins '^e' end-of-line
+bindkey -M viins '^f' forward-char
+bindkey -M viins '^k' kill-line
+bindkey -M viins '^u' kill-region
+bindkey -M viins '^y' yank
 
 # configure components {{{
 [ $DEBUG_DOTFILES ] && echo "  Setting autocompletions"
