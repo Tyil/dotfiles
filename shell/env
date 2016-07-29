@@ -69,8 +69,9 @@ export QT_STYLE_OVERRIDE=GTK+
 tabs -4 > /dev/null
 
 # note to self: remove when rtorrent becomes sane or gets replaced
-stty start undef
-stty stop undef
+# double note to self: enable whenever you consider using rtorrent again
+#stty start undef
+#stty stop undef
 
 # enable interactive comments in zsh
 set -k
