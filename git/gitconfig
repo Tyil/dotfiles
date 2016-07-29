@@ -14,7 +14,7 @@
 	d   = diff
 	co  = checkout
 	cob = checkout -b
-	l   = log --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(3)%h %C(6)%ad %C(2)%ae %C(4)%G?%Creset %s' --reverse
+	l   = log --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(3)%h %C(6)%ad %C(2)%ae %C(4)%G?%Creset %s'
 	p   = push
 	r   = rebase --preserve-merges -i -S
 	rc  = commit --amend --no-edit -S -a
