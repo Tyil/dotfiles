@@ -8,6 +8,7 @@ files: [
   ["portage/overlays/sk-overlay.conf", "/etc/portage/repos.conf/sk-overlay.conf"],
   ["portage/package.license", "/etc/portage/package.license"],
   ["portage/package.mask", "/etc/portage/package.mask/00-global.mask"],
+  ["portage/package.unmask", "/etc/portage/package.unmask/00-global.unmask"],
   ["portage/package.use", "/etc/portage/package.use/00-global.use"],
   ["portage/patches", "/etc/portage/patches"],
   ["portage/sets", "/etc/portage/sets"],
