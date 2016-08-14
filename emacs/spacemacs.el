@@ -14,6 +14,8 @@
      lua
      markdown
      php
+     python
+     react
      ruby
      shell-scripts
      sql
@@ -24,6 +26,9 @@
      emacs-lisp
      git
      markdown
+
+     ; themes
+     themes-megapack
      )
    dotspacemacs-additional-packages
    '(
@@ -53,7 +58,7 @@ values."
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
    ;; when the current branch is not `develop'. (default t)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
    ;; One of `vim', `emacs' or `hybrid'. Evil is always enabled but if the
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
@@ -235,8 +240,10 @@ values."
           (tab-mark 9 [124 9] [92 9])))
 
   ; indentation rules
-  ;(indent-tabs-mode 't)
+  ;(setq-default indent-tabs-mode 't)
   ;(smart-tabs-insinuate 'c 'javascript)
+  ;(setq-default web-mode-indent-style nil)
+  ;(setq-default web-mode-markup-indent-offset 4)
 
   ; set relative line numbers
   (add-hook 'prog-mode-hook #'linum-mode)
@@ -252,7 +259,7 @@ values."
   (global-centered-cursor-mode 1)
 
   ; make the window transparent by default
-  (spacemacs/toggle-transparent-frame)
+  ;(spacemacs/toggle-transparent-frame) ;; requires a compositing manager
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
