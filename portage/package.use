@@ -47,3 +47,4 @@ x11-misc/xmobar mpd wifi xft
 x11-terms/rxvt-unicode 256-color alt-font-width -vanilla
 x11-themes/gtk-engines-murrine -themes
 x11-wm/openbox session
+net-mail/offlineimap -python_target_27 -python_single_target_python2_7
