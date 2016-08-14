@@ -1,4 +1,9 @@
+scripts: [
+  after:
+    - [".scripts/install-mpd.sh"]
+]
 files: [
-  ["mpd/mpd.conf", "${HOME}/.config/mpd/mpd.conf"],
+  ["mpa.ini", "${HOME}/.config/mpa.ini"],
+  ["mpd.conf", "${HOME}/.config/mpd/mpd.conf"],
 ]
 
