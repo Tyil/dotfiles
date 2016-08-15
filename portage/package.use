@@ -12,7 +12,7 @@ app-misc/tmux vim-syntax
 app-office/libreoffice -bluetooth
 app-text/asciidoc python_single_target_python2_7
 dev-lang/mono minimal
-dev-lang/php curl mysql pdo postgres
+dev-lang/php curl mysql pcntl pdo postgres
 dev-libs/libpcre pcre16
 dev-libs/qtkeychain qt5
 dev-python/PyQt5 gui network printsupport webkit widgets
