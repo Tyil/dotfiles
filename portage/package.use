@@ -33,7 +33,7 @@ sys-apps/util-linux abi_x86_32
 sys-auth/consolekit gtk pam policykit
 sys-kernel/void-sources-bin dracut
 www-client/chromium -hangouts -proprietary-codecs
-www-client/palemoon -official-branding
+www-client/palemoon -dbus -official-branding
 www-plugins/chrome-binary-plugins -widevine
 x11-libs/cairo xcb -qt4
 x11-libs/libICE abi_x86_32
