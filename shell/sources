@@ -13,12 +13,14 @@ unset PATH
 PATH=$HOME/.local/bin
 PATH=$PATH:$HOME/.scripts/generic
 PATH=$PATH:$HOME/.config/shell/wrappers.d
+PATH=$PATH:$HOME/.cabal/bin
 PATH=$PATH:/bin
 PATH=$PATH:/sbin
 PATH=$PATH:/usr/bin
 PATH=$PATH:/usr/sbin
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/sbin
+PATH=$PATH:/usr/games/bin
 PATH=$PATH:/opt/bin
 PATH=$PATH:/usr/x86_64-pc-linux-gnu/gcc-bin/4.8.4
 
