@@ -36,7 +36,6 @@ x11-libs/pango
 x11-libs/pixman
 
 # optional
-media-sound/pulseaudio
 net-misc/networkmanager
 x11-misc/xdg-user-dirs
 

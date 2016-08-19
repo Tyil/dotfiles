@@ -17,7 +17,6 @@ media-libs/libv4l abi_x86_32
 media-libs/libvorbis abi_x86_32
 media-plugins/alsa-plugins abi_x86_32
 media-sound/mpg123 abi_x86_32
-media-sound/pulseaudio abi_x86_32
 net-libs/gnutls abi_x86_32
 net-libs/libasyncns abi_x86_32
 net-print/cups abi_x86_32
