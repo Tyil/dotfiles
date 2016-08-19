@@ -7,6 +7,9 @@ files: [
   ["shell/wrappers.d", "${HOME}/.config/shell/wrappers.d"],
   ["shell/wrappers-linux-funtoo.d", "${HOME}/.config/shell/wrappers-linux-funtoo.d"],
 
+  ["tmux/tmux.conf", "${HOME}/.tmux.conf"],
+  ["tmux/status-right.pl", "${HOME}/.config/tmux/status-right.pl"],
+
   ["shell/zshrc", "${HOME}/.zshrc"],
 ]
 
