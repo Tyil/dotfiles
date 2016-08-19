@@ -5,3 +5,5 @@ then
 	echo "eth0" > "${HOME}/.config/tmux/inet-device"
 fi
 
+chmod +x "${HOME}/.config/tmux/status-right.pl"
+
