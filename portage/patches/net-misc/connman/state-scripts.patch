@@ -1,0 +1,85 @@
+Copyright 2016 Samantha McVey <samantham@posteo.net> and licensed under the GPLv2 or greater.
+
+diff -aur connman-1.33.orig/src/notifier.c connman-1.33/src/notifier.c
+--- connman-1.33.orig/src/notifier.c	2016-08-22 03:37:11.993598853 -0700
++++ connman-1.33/src/notifier.c	2016-08-22 06:48:58.078204926 -0700
+@@ -18,7 +18,16 @@
+  *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+  *
+  */
++#define SS_ONLINE_SCRIPT "/etc/connman/scripts/online"
++#define SS_DISCONNECT_SCRIPT "/etc/connman/scripts/disconnect"
++#define SS_UNKNOWN_SCRIPT "/etc/connman/scripts/unknown"
++#define SS_IDLE_SCRIPT "/etc/connman/scripts/idle"
++#define SS_FAILURE_SCRIPT "/etc/connman/scripts/failure"
++#define SS_READY_SCRIPT "/etc/connman/scripts/ready"
+ 
++
++#include <unistd.h>
++#include <stdlib.h>
+ #ifdef HAVE_CONFIG_H
+ #include <config.h>
+ #endif
+@@ -310,6 +319,30 @@
+ 	}
+ }
+ 
++int ss_try_script(char const * script_path) {
++	// Check to make sure file exists *and* is executable
++	if( access( script_path, X_OK|R_OK ) != -1 ) {
++		int script_pid = fork();
++		// If script_pid is 0 that means we are part of the child process
++		if (script_pid == 0) {
++			// Replace the fork's process with the script
++			execv(script_path, NULL);
++			return;
++		}
++		else if (script_pid == -1) {
++			// Return -1 if there was a problem forking
++			return -1;
++		}
++		// Return 1 if the script ran
++		return 1;
++	}
++	// Return 0 if the script did not exist or was not set to executable
++	else {
++		return 0;
++	}
++}
++
++
+ void __connman_notifier_service_state_changed(struct connman_service *service,
+ 					enum connman_service_state state)
+ {
+@@ -329,9 +362,19 @@
+ 
+ 	switch (state) {
+ 	case CONNMAN_SERVICE_STATE_UNKNOWN:
++		ss_try_script(SS_FAILURE_SCRIPT);
++		break;
++
+ 	case CONNMAN_SERVICE_STATE_FAILURE:
++		ss_try_script(SS_FAILURE_SCRIPT);
++		break;
++
+ 	case CONNMAN_SERVICE_STATE_DISCONNECT:
++		ss_try_script(SS_DISCONNECT_SCRIPT);
++		break;
++
+ 	case CONNMAN_SERVICE_STATE_IDLE:
++		ss_try_script(SS_IDLE_SCRIPT);
+ 		if (!found)
+ 			break;
+ 
+@@ -343,7 +386,11 @@
+ 	case CONNMAN_SERVICE_STATE_ASSOCIATION:
+ 	case CONNMAN_SERVICE_STATE_CONFIGURATION:
+ 	case CONNMAN_SERVICE_STATE_READY:
++		ss_try_script(SS_READY_SCRIPT);
++		break;
++
+ 	case CONNMAN_SERVICE_STATE_ONLINE:
++		ss_try_script(SS_ONLINE_SCRIPT);
+ 		if (found)
+ 			break;
+ 
