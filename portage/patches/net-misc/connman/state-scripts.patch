@@ -1,4 +1,24 @@
-Copyright 2016 Samantha McVey <samantham@posteo.net> and licensed under the GPLv2 or greater.
+Connection Manager - Notification patch
+
+This patch adds a number of hooks to execute a script for certain events in
+connman.
+
+Copyright (C) 2016  Samantha McVey <samantham@posteo.net>
+              2016  Patrick Spek   <p.spek@tyil.work>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
 
 diff -aur connman-1.33.orig/src/notifier.c connman-1.33/src/notifier.c
 --- connman-1.33.orig/src/notifier.c	2016-08-22 03:37:11.993598853 -0700
@@ -7,14 +27,18 @@ diff -aur connman-1.33.orig/src/notifier.c connman-1.33/src/notifier.c
   *  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
   *
   */
-+#define SS_ONLINE_SCRIPT "/etc/connman/scripts/online"
-+#define SS_DISCONNECT_SCRIPT "/etc/connman/scripts/disconnect"
-+#define SS_UNKNOWN_SCRIPT "/etc/connman/scripts/unknown"
-+#define SS_IDLE_SCRIPT "/etc/connman/scripts/idle"
-+#define SS_FAILURE_SCRIPT "/etc/connman/scripts/failure"
-+#define SS_READY_SCRIPT "/etc/connman/scripts/ready"
- 
 +
++#define SS_SCRIPTS_DIR "/etc/connman/scripts"
++
++#define SS_ASSOCIATION_SCRIPT "association"
++#define SS_CONFIGURATION_SCRIPT "configuration"
++#define SS_DISCONNECT_SCRIPT "disconnect"
++#define SS_FAILURE_SCRIPT "failure"
++#define SS_IDLE_SCRIPT "idle"
++#define SS_ONLINE_SCRIPT "online"
++#define SS_READY_SCRIPT "ready"
++#define SS_UNKNOWN_SCRIPT "unknown"
+ 
 +#include <unistd.h>
 +#include <stdlib.h>
  #ifdef HAVE_CONFIG_H
@@ -24,29 +48,30 @@ diff -aur connman-1.33.orig/src/notifier.c connman-1.33/src/notifier.c
  	}
  }
  
-+int ss_try_script(char const * script_path) {
++int ss_try_script(const char * script_filename) {
++	const char * script_path = SS_SCRIPTS_DIR + "/" + script_filename;
++
 +	// Check to make sure file exists *and* is executable
 +	if( access( script_path, X_OK|R_OK ) != -1 ) {
 +		int script_pid = fork();
++
 +		// If script_pid is 0 that means we are part of the child process
 +		if (script_pid == 0) {
 +			// Replace the fork's process with the script
 +			execv(script_path, NULL);
 +			return;
-+		}
-+		else if (script_pid == -1) {
++		} else if (script_pid == -1) {
 +			// Return -1 if there was a problem forking
 +			return -1;
 +		}
++
 +		// Return 1 if the script ran
 +		return 1;
-+	}
-+	// Return 0 if the script did not exist or was not set to executable
-+	else {
++	} else {
++		// Return 0 if the script did not exist or was not set to executable
 +		return 0;
 +	}
 +}
-+
 +
  void __connman_notifier_service_state_changed(struct connman_service *service,
  					enum connman_service_state state)
@@ -73,7 +98,9 @@ diff -aur connman-1.33.orig/src/notifier.c connman-1.33/src/notifier.c
  
 @@ -343,7 +386,11 @@
  	case CONNMAN_SERVICE_STATE_ASSOCIATION:
++		ss_try_script(SS_ASSOCIATION_SCRIPT);
  	case CONNMAN_SERVICE_STATE_CONFIGURATION:
++		ss_try_script(SS_CONFIGURATION_SCRIPT);
  	case CONNMAN_SERVICE_STATE_READY:
 +		ss_try_script(SS_READY_SCRIPT);
 +		break;
