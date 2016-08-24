@@ -13,6 +13,8 @@ files: [
   ["tmux/tmux.conf", "${HOME}/.tmux.conf"],
   ["tmux/status-right.pl", "${HOME}/.config/tmux/status-right.pl"],
 
+  ["bcrc", "${HOME}/.config/bcrc"],
+
   ["shell/zshrc", "${HOME}/.zshrc"],
 ]
 
