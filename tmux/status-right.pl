@@ -56,9 +56,16 @@ sub load
 	return $output;
 }
 
+sub mem
+{
+	chomp(my $output = `free -h | grep "Mem:" | awk '{print \$3}'`);
+	return $output;
+}
+
 # set the sections {{{
 &section(12, &inet);
 &section(2, &load);
+&section(2, &mem);
 &section(11, &battery);
 # }}}
 
