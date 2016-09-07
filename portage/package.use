@@ -19,6 +19,7 @@ dev-python/PyQt5 gui network printsupport webkit widgets
 dev-qt/qtwebkit printsupport
 dev-ruby/rubygems ruby_targets_ruby21 ruby_targets_ruby20
 mail-client/mutt gpg
+media-fonts/noto cjk
 media-gfx/nomacs -tiff
 media-libs/mesa gles2
 media-sound/flacon qt5 -aac
@@ -27,6 +28,7 @@ media-sound/ncmpcpp visualizer
 media-video/ffmpeg aac amr gnutls rtmp threads twolame x264 x265 opus v4l vpx webp -faac
 media-video/mpv archive lua -xscreensaver
 net-dns/dnsmasq dnssec ipv6 script
+net-mail/offlineimap -python_target_27 -python_single_target_python2_7
 net-misc/i2pd i2p-hardening
 net-misc/spice-gtk gtk3 usbredir python_single_target_python2_7 -python_single_target_python3_4
 sys-apps/util-linux abi_x86_32
@@ -47,4 +49,3 @@ x11-misc/xmobar mpd wifi xft
 x11-terms/rxvt-unicode 256-color alt-font-width -vanilla
 x11-themes/gtk-engines-murrine -themes
 x11-wm/openbox session
-net-mail/offlineimap -python_target_27 -python_single_target_python2_7
