@@ -5,5 +5,7 @@ scripts: [
 files: [
   ["mpa.ini", "${HOME}/.config/mpa.ini"],
   ["mpd.conf", "${HOME}/.config/mpd/mpd.conf"],
+  ["ncmpc", "${HOME}/.ncmpc"],
+  ["ncmpcpp", "${HOME}/.ncmpcpp"],
 ]
 
