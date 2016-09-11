@@ -22,6 +22,9 @@
 	s   = status -s
 	t   = tag
 
+[commit]
+	gpgsign = true
+
 [core]
 	pager        = less -R
 	excludesfile = ~/.config/gitignore
