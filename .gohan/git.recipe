@@ -1,4 +1,5 @@
 files: [
+  ["git/git-push-all.sh", "${HOME}/.local/bin/git-push-all"],
   ["git/gitconfig", "${HOME}/.gitconfig"],
   ["git/gitignore", "${HOME}/.config/gitignore"],
 ]
