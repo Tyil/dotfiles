@@ -1,3 +1,6 @@
+scripts:
+  after:
+    - ".scripts/install-git-pa.sh"
 files: [
   ["git/git-push-all.sh", "${HOME}/.local/bin/git-push-all"],
   ["git/gitconfig", "${HOME}/.gitconfig"],
