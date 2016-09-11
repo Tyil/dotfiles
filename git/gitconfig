@@ -1,11 +1,3 @@
-[user]
-	email      = p.spek@tyil.nl
-	name       = Patrick Spek
-	signingkey = 9ACFE193FFBC1F50
-
-[push]
-	default = simple
-
 [alias]
 	a   = add
 	b   = branch
@@ -36,4 +28,12 @@
 
 [difftool]
 	prompt = false
+
+[push]
+	default = simple
+
+[user]
+	email      = p.spek@tyil.nl
+	name       = Patrick Spek
+	signingkey = 9ACFE193FFBC1F50
 
