@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+dir=.
+fperms=644
+dperms=755
+
+# set the directory if not given
+if [ -n "$1" ]; then
+	dir=$1
+fi
+
+# set file permissions if not given
+if [ -n "$2" ]; then
+	fperms=$2
+fi
+
+# set the directory permissions if not given
+if [ -n "$3" ]; then
+	dperms=$3
+fi
+
+# apply permissions to directories
+find "${dir}" -type d -print0 | xargs -0 chmod 0${dperms}
+
+# apply permissions to files
+find "${dir}" -type f -print0 | xargs -0 chmod 0${fperms}
+

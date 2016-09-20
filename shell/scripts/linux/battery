@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+if [ /sys/class/power_supply/BAT1/present ]; then
+	if [ `cat /sys/class/power_supply/BAT1/status` == "Charging" ]; then
+		symbol="↑ "
+	fi
+
+	capacity=$(acpi | egrep -o "[0-9]{1,3}%")
+
+	echo "${symbol}${capacity}"
+else
+	echo "N/A"
+fi
+

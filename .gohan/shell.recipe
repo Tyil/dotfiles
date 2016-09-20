@@ -2,6 +2,7 @@ scripts:
   after:
     - ".scripts/install-tmux.sh"
 files: [
+  ["shell/scripts", "${HOME}/.scripts"],
   ["shell/aliases", "${HOME}/.config/shell/aliases"],
   ["shell/env", "${HOME}/.config/shell/env"],
   ["shell/sources", "${HOME}/.config/shell/sources"],

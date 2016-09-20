@@ -1,0 +1,46 @@
+#!/usr/bin/env sh
+
+# rafactor - rudimentary refactoring tool
+#
+# License: GPL version 3 or later
+#
+# Author: Patrick Spek <p.spek@tyil.work>
+
+usage()
+{
+	cat <<EOF
+refactor - Rudimentary refactoring tool
+
+Usage: $0 <search> <replacement> [directory]
+
+search        The string to search for.
+replacement   The string to replace the <search> with.
+directory     The directory to refactor in.
+EOF
+}
+
+main()
+{
+	local old=$1
+	local new=$2
+	local dir=$3
+
+	if [ "${old}" = "" ] || [ "${new}" = "" ]; then
+		usage
+		exit 1
+	fi
+
+	if [ "${dir}" = "" ]; then
+		dir=$(pwd)
+	fi
+
+	echo "Refactoring in ${dir}..."
+
+	for file in $(grep -R "${old}" | awk -F: '{print $1}' | uniq); do
+		echo "  Refactoring ${file}..."
+		sed -i "s/${old}/${new}/g" "${file}"
+	done
+}
+
+main "$@"
+

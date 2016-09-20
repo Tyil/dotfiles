@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+# some configuration
+MPD_DIR="/home/$(whoami)/music"
+MPC_FLAGS=""
+
+# get all info from mpc
+artist=$(mpc -f "%artist%" ${MPC_FLAGS} | head -n1)
+album=$(mpc -f "%album%" ${MPC_FLAGS} | head -n1)
+disc=$(mpc -f "%disc%" ${MPC_FLAGS} | head -n1)
+track=$(mpc -f "%track%" ${MPC_FLAGS} | head -n1)
+title=$(mpc -f "%title%" ${MPC_FLAGS} | head -n1)
+file=$(mpc -f "%file%" ${MPC_FLAGS} | head -n1)
+
+# check if there's an image to add
+img="${MPD_DIR}/$(dirname "$file")/cover.jpg"
+echo $img
+
+if [ -f "${img}" ]; then
+	image=${img}
+fi
+
+# create the messages
+title=$(printf "%01d. %02d. %s" "${disc}" "${track}" "${title}")
+message=$(printf "%s\n%s" "${artist}" "${album}")
+
+if [ -n "$image" ]; then
+	notify-send "${title}" "${message}" -i "${image}"
+else
+	notify-send "${title}" "${message}"
+fi

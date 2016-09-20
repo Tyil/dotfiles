@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+$wc = $(ps a | grep xscreensaver | wc -l)
+
+# It has to be greater than, as the grep will also return 1 line for itself
+if [[ $wc -gt 1 ]]; then
+	pkill xscreensaver
+fi
+
+mpv $@
+
+# Restart xscreensaver without splashart
+if [[ $wc -gt 1 ]]; then
+	xscreensaver -no-splash
+fi
+

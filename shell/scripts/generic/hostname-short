@@ -1,0 +1,5 @@
+#!/usr/bin/env perl
+
+@parts    = split(/\./, `hostname`);
+print $parts[0];
+

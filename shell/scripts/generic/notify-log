@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+tail -n0 -f "$1" | while read line; do
+	notify-send "$1" "$line";
+done
+

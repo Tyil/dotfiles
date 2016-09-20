@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+cat /etc/*release | head -n1 | awk '{print $1}'
+
