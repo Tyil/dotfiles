@@ -3,9 +3,11 @@ options:
   group: portage
 files: [
   ["portage/bashrc", "/etc/portage/bashrc"],
+  ["portage/env", "/etc/portage/env"],
   ["portage/make.conf", "/etc/portage/make.conf/00-global.conf"],
   ["portage/overlays/palemoon-overlay.conf", "/etc/portage/repos.conf/palemoon-overlay.conf"],
   ["portage/overlays/sk-overlay.conf", "/etc/portage/repos.conf/sk-overlay.conf"],
+  ["portage/package.env", "/etc/portage/package.env/00-global.env"],
   ["portage/package.license", "/etc/portage/package.license"],
   ["portage/package.mask", "/etc/portage/package.mask/00-global.mask"],
   ["portage/package.unmask", "/etc/portage/package.unmask/00-global.unmask"],
