@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-d()
+c()
 {
 	destination="$1"
 
@@ -24,14 +24,13 @@ d()
 			mv "${store}.sed" "${store}"
 		fi
 	else
-		dots=$(expr "$1" : '^\.\+$')
+		dots=$(expr "${destination}" : '^\.\+$')
 
 		if [ "$dots" -gt 2 ]
 		then
-			dots=$((dots - 1))
 			destination=""
 
-			while [ "${dots}" -gt 0 ]
+			while [ "${dots}" -gt 1 ]
 			do
 				destination="${destination}../"
 
