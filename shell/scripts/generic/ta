@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+t="tmux -2 -u"
+
+if [ -z "$1" ]; then
+	session=$(hostname -s)
+else
+	session=$(hostname -s)/$1
+fi
+
+${t} attach -t ${session} || ${t} new-session -s ${session}
+

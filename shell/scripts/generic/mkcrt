@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+if [ -z "${1}" ]; then
+	echo "Usage: ${0} certname"
+	exit
+fi
+
+openssl req -new -x509 -nodes -out "${1}.crt" -keyout "${1}.privkey"
+openssl rsa -in "${1}.privkey" -pubout -out "${1}.pubkey"
+

@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+if [ "$#" -eq 1 ]; then
+	if [ -f "$1" ]; then
+		echo "File already exists at $1"
+		exit
+	fi
+
+	touch "$1"
+	exit
+fi
+
+if [ "$#" -eq 2 ]; then
+	if [ -f "$2" ]; then
+		echo "File already exists at $2"
+		exit;
+	fi
+
+	if [ ! -f "${XDG_TEMPLATES_DIR}/$1" ]; then
+		echo "No template '$1' found at ~/templates/"
+		exit
+	fi
+
+	cp "${XDG_TEMPLATES_DIR}/$1" "$2"
+	exit
+fi
+
+# This should only be reached if the command was used incorrectly
+echo "\`new\` usage:"
+echo "  new <filename>"
+echo "  new <template> <filename>"
+

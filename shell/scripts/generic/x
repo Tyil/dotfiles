@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# if an argument is given, check if we have an xinitrc for that
+if [ -n "$1" ]; then
+	if [ ! -f ~/.xinit/${1}.rc ]; then
+		echo "no valid config for $1"
+		exit
+	fi
+
+	# remove the old config
+	if [ -f ~/.xinitrc ]; then
+		rm ~/.xinitrc
+	fi
+
+	# create the new config
+	cat ~/.xinit/xinitrc ~/.xinit/$1.rc > ~/.xinitrc
+fi
+
+# make sure the xinitrc exists, just in case
+if [ ! -f ~/.xinitrc ]; then
+	echo "no xinitrc"
+	exit
+fi
+
+# start the X session
+startx
+

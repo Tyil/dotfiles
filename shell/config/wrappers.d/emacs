@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# disable proxies because it kills spacemacs for a minute or 5
+eval $(proxy-toggle off)
+
+# start emacs
+/usr/bin/emacs "$@"
+

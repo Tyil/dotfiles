@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+p="~/pictures/scrot"
+cmd="mv \$f ${p} && notify-send \"Screenshot\" \"Saved to ${p}/\$f\""
+
+scrot -sz window-%Y%m%d%H%M%S.png -e "${cmd}"

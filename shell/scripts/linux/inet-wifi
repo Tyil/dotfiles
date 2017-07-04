@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+address=`ifconfig $1 | grep "inet addr:" | awk '{ print $2 }' | cut -c 6-`
+strenght=`awk 'NR==3 {print $3}' /proc/net/wireless | sed 's/\.//'`
+
+if [[ "$strenght" -eq 0 ]]; then
+	echo "No wifi"
+	exit
+fi
+
+if [ -z "$address" ]; then
+	address="0.0.0.0"
+fi
+
+echo "$strenght% $address"

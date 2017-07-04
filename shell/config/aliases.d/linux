@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+# general purpose
+alias l="ls -Fhl --color=auto"
+alias ll="ls -Fahl --color=auto"
+

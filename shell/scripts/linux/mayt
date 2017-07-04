@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+# check if youtube-dl exists
+if ! `which youtube-dl > /dev/null`; then
+	echo -e "\033[0;31mMissing dependency \`youtube-dl\`\033[0m"
+	exit
+fi
+
+if [ $# -eq 0 ]; then
+	echo -e "\033[0;31mNo arguments given\033[0m"
+	exit
+fi
+
+musicDir="${HOME}/music"
+destination="mayt/[%(id)s] %(title)s/%(title)s.%(ext)s"
+
+for vid in "$@"; do
+	# get the title and ID
+	id=$(youtube-dl --get-id ${vid})
+	title=$(youtube-dl --get-title ${vid})
+	ext=$(youtube-dl -o "%(ext)s" ${vid} --get-filename)
+	videoFile=$(youtube-dl -o "${destination}" --get-filename ${vid})
+	audioFile=${videoFile%.*}.ogg
+
+	echo -e "Fetching \033[0;34m${id}\033[0m..."
+
+	if [ ! -f "${musicDir}/${audioFile}" ]; then
+		# download the vid
+		youtube-dl -o "${musicDir}/${videoFile}" -x --audio-format "vorbis" ${vid} 1>&2
+
+		if [ $? -ne 0 ]; then
+			echo -e "  \033[0;31mError while downloading videofile\033[0m"
+			continue
+		fi
+
+		echo -e "  \033[0;32mDownloaded videofile\033[0m"
+
+		# only tag if we actually downloaded the file anew
+		if which vorbiscomment > /dev/null; then
+			vorbiscomment -a "${musicDir}/${audioFile}" -t "TITLE=${title}" -t "ALBUM=${id}" -t "ARTIST=YouTube"
+
+			if [ $? -ne 0 ]; then
+				echo -e "  \033[0;31mTagging failed\033[0m"
+			else
+				echo -e "  \033[0;32mSet tags\033[0m"
+			fi
+		else
+			echo -e "  \033[0;31mMissing dependency \`vorbiscomment\`\033[0m"
+		fi
+	fi
+
+	if [ ! -f "${musicDir}/mayt/[${id}] ${title}/cover.jpg" ]; then
+		if `which wget > /dev/null`; then
+			wget -O "${musicDir}/mayt/[${id}] ${title}/cover.jpg" "$(youtube-dl --get-thumbnail ${vid})" 1>&2
+
+			if [ $? -ne 0 ]; then
+				echo -e "  \033[0;31mError while downloading thumbnail\033[0m"
+			else
+				echo -e "  \033[0;32mDownloaded thumbnail\033[0m"
+			fi
+		else
+			echo -e "  \033[0;31mMissing dependency \`wget\`\033[0m"
+		fi
+	fi
+
+	# now add it to mpd's queue
+	mpc update --wait 1>&2
+	mpc add "${audioFile}"
+
+	if [ $? -ne 0 ]; then
+		echo -e "  \033[0;31mError while adding track to MPD\033[0m"
+		continue
+	fi
+
+	echo -e "  \033[0;32mAdded to MPD\033[0m"
+done
+

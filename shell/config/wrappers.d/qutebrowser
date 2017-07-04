@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+$(proxy-toggle off)
+firejail qutebrowser "$@"
+

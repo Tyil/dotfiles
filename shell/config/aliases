@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+# Author:  Patrick Spek <p.spek@tyil.nl>
+# License: BSD 3-clause license
+
+# this should fix sudo with aliases
+alias sudo="sudo "
+
+# musicplayer aliases {{{
+alias ma="mpc add"
+alias mh="ncmpcpp --host"
+alias mp="mpc toggle > /dev/null"
+# }}}
+
+# tmux aliases {{{
+alias t="tmux -2 -u"
+# }}}
+
+# virsh aliases {{{
+alias v="virsh --connect qemu:///system"
+alias vc="v console"
+alias vl="v list --all"
+alias vp="v suspend"
+alias vr="v resume"
+alias vs="v start"
+# }}}
+
+# other aliases {{{
+alias bc="bc -i ~/.config/bcrc"
+alias e="vim"
+alias g="grep --color=always -i"
+alias muttman="~/projects/rb/muttman/src/muttman"
+alias p="ps aux | grep --color=always -i"
+alias s="sed -n"
+alias rcopy="rsync --append --info=ALL,PROGRESS -aru"
+alias slideshow="feh -zsZ.D 5"
+alias wifiman="wicd-curses"
+alias ag="ag --color-line-number '0;33' --color-match '1;31' --color-path '1;33' --smart-case"
+# }}}
+

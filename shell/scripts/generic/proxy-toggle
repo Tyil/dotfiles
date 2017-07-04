@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+
+import sys
+
+PROXY_ADDRESS  = "http://127.0.0.1"
+PROXY_PORT     = "8118"
+PROXY_VARS     = [
+    "ftp_proxy",
+    "http_proxy",
+    "https_proxy",
+    "rsync_proxy"
+]
+
+def usage():
+    print("""{} + " <off|on> [address] [port]
+
+    address defaults to 127.0.0.1
+    port defaults to 8118
+    """.format(sys.argv[0]))
+
+def proxy_domain():
+    proxy_address  = PROXY_ADDRESS
+    proxy_port     = PROXY_PORT
+
+    if len(sys.argv) > 2:
+        proxy_address = sys.argv[2]
+
+    if len(sys.argv) > 3:
+        proxy_port = sys.argv[3]
+
+    return "{}:{}".format(proxy_address, proxy_port)
+
+def main():
+    if len(sys.argv) < 2:
+        usage()
+        return
+
+    if sys.argv[1] == "on":
+        for proxy_var in PROXY_VARS:
+            print("export {}={}".format(proxy_var, proxy_domain()))
+            print("export {}={}".format(proxy_var.upper(), proxy_domain()))
+
+        return
+
+    if sys.argv[1] == "off":
+        for proxy_var in PROXY_VARS:
+            print("unset {}".format(proxy_var))
+            print("unset {}".format(proxy_var.upper()))
+
+        return
+
+
+    usage()
+
+main()
+

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+address=`ifconfig $1 | grep "inet " | awk '{print $2}' | head -n1`
+
+if [ -z "$address" ]; then
+	echo "No internet"
+	exit
+fi
+
+echo "$address"
+

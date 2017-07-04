@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+#echo "Turning off services..."
+#if [ -f "/etc/init.d/connman" ] && [ "$(service connman status | awk '{print $NF}')" = "started" ]
+#then
+#	echo "  connman"
+#	sudo service connman stop
+#fi
+
+echo "Entering suspended state"
+sudo pm-suspend
+

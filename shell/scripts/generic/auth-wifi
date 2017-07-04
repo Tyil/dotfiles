@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+echo "Attempting to auth to $1..."
+
+case "$1" in
+	amarantis)
+		curl --data "fname=wba_login&username=81816%40amarantis.nl&key=Welkom123" http://star.amarantis.nl/aaa/portal.html
+		;;
+	arriva)
+		curl --data "command=StartFreeInternetSession" http://192.168.101.1/goInternet.php
+		;;
+	*)
+		echo "$1 Didn't match anything"
+esac
+

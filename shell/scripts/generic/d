@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+d()
+{
+	if [ "$1" = "-" ]
+	then
+		popd > /dev/null
+		exit 0
+	fi
+
+	pushd "$1" > /dev/null
+	l
+}
+

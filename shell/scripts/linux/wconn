@@ -1,0 +1,39 @@
+#! /usr/bin/env sh
+
+show_scan()
+{
+	connmanctl enable wifi
+	sleep 0.5
+	connmanctl scan wifi
+	connmanctl services
+}
+
+main()
+{
+	if [ "$#" = 0 ]
+	then
+		show_scan
+		exit 0
+	fi
+
+	readonly name="$@"
+
+	connmanctl enable wifi 2> /dev/null &&
+		connmanctl scan wifi
+
+	readonly wifi=$(connmanctl services | grep -Fi "$name" | awk '{ print $NF }')
+
+	if [ "$wifi" = "" ]
+	then
+		echo "No wifi network found by name '$name'"
+		show_scan
+		exit 1
+	fi
+
+	echo "Connecting to $wifi"
+
+	connmanctl connect "$wifi"
+}
+
+main "$@"
+
