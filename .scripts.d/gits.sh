@@ -36,6 +36,7 @@ update_git()
 	destination=$(expand "$2")
 	destdir=$(dirname "${destination}")
 
+	echo "  > ${destination}"
 	if [ ! -d "${destdir}" ]
 	then
 		mkdir -p "${destdir}"
@@ -43,13 +44,13 @@ update_git()
 
 	if [ ! -d "${destination}" ]
 	then
-		git clone "${repo}" "${destination}"
+		git clone "${repo}" "${destination}" 2>&1 > /dev/null
 		return
 	fi
 
 	cwd=$(pwd)
 	cd "${destination}"
-	git pull
+	git pull 2>&1 > /dev/null
 	cd "${cwd}"
 }
 

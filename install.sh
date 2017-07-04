@@ -141,7 +141,7 @@ main()
 		script="${DOTDIR}/$(expand "${line}")"
 
 		echo "x $script"
-		$script > /dev/null
+		$script
 	done < "${DOTDIR}/.scripts"
 
 	exit 0
