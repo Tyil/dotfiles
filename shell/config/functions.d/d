@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+
+d()
+{
+	destination="$1"
+
+	if [ -z "${SHELLSTORE}" ]
+	then
+		return 1
+	fi
+
+	store=${SHELLSTORE}/chdir_history
+
+	# Make sure the store exists
+	touch "${store}"
+
+	if [ -z "$1" ]
+	then
+		destination=$(tail -n 1 "${store}")
+
+		if [ "${destination}" != "" ]
+		then
+			sed '$ d' "${store}" > "${store}.sed"
+			mv "${store}.sed" "${store}"
+		fi
+	else
+		dots=$(expr "$1" : '^\.\+$')
+
+		if [ "$dots" -gt 2 ]
+		then
+			dots=$((dots - 1))
+			destination=""
+
+			while [ "${dots}" -gt 0 ]
+			do
+				destination="${destination}../"
+
+				dots=$((dots - 1))
+			done
+		fi
+
+		printf "%s\n" "$(pwd)" >> "${store}"
+	fi
+
+	cd "${destination}" || return 2
+	l
+
+	unset destination dots store
+}

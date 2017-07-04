@@ -1,0 +1,6 @@
+#! /usr/bin/env sh
+
+SHELLSTORE=$(mktemp -d -t "shellstore_XXXXX")
+
+export SHELLSTORE
+

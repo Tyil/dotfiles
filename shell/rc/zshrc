@@ -1,5 +1,9 @@
 [ $DEBUG_DOTFILES ] && echo "Loading .zshrc"
 
+# Load initialization
+[ $DEBUG_DOTFILES ] && echo "  Loading ~/.config/shell/init"
+source ~/.config/shell/init
+
 # load the sourcesfile, which in turn will source more functionality
 [ $DEBUG_DOTFILES ] && echo "  Loading ~/.config/shell/sources"
 source ~/.config/shell/sources
