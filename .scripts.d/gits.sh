@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-readonly BASEDIR=$(dirname $(readlink -f "$0"))
+readonly BASEDIR=$(dirname "$(readlink -f "$0")")
 readonly REPOFILE="${BASEDIR}/files/git-repos"
 
 main()
@@ -10,7 +10,7 @@ main()
 		return 1
 	fi
 
-	while read line
+	while read -r line
 	do
 		if [ "$line" = "" ]
 		then
@@ -25,7 +25,7 @@ main()
 expand() {
 	string=$(echo "$1" | sed 's|^~/|${HOME}/|')
 	delimiter="__apply_shell_expansion_delimiter__"
-	command="cat <<$delimiter"$'\n'"$string"$'\n'"$delimiter"
+	command="cat << $(printf "%s\n%s\n%s" "$delimiter" "$string" "$delimiter")"
 
 	eval "$command"
 }

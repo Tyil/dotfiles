@@ -5,7 +5,7 @@ readonly DOTDIR="${HOME}/dotfiles"
 expand() {
 	string=$(echo "$1" | sed 's|^~/|${HOME}/|')
 	delimiter="__apply_shell_expansion_delimiter__"
-	command="cat <<$delimiter"$'\n'"$string"$'\n'"$delimiter"
+	command="cat << $(printf "%s\n%s\n%s" "$delimiter" "$string" "$delimiter")"
 
 	eval "$command"
 }
@@ -65,7 +65,6 @@ install_dir()
 	dir_base="${DOTDIR}/$1"
 	dir_cwd=$(pwd)
 	dir_target="$(expand $2)"
-	dir_target_dir=$(dirname "$2")
 
 	# Ensure the base exists
 	if [ ! -d "${dir_base}" ]
@@ -108,7 +107,7 @@ main()
 	fi
 
 	# Install all single file configs
-	while read line
+	while read -r line
 	do
 		if [ "$line" = "" ]
 		then
@@ -120,7 +119,7 @@ main()
 
 	# Install all directories
 	[ -e "${DOTDIR}/.dirs" ] && \
-	while read line
+	while read -r line
 	do
 		if [ "$line" = "" ]
 		then
@@ -132,7 +131,7 @@ main()
 
 	# Run additional scripts
 	[ -e "${DOTDIR}/.scripts" ] && \
-	while read line
+	while read -r line
 	do
 		if [ "$line" = "" ]
 		then
@@ -149,4 +148,3 @@ main()
 }
 
 main "$@"
-
