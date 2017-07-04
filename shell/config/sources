@@ -75,15 +75,6 @@ fi
 # export the extended PATH
 export PATH
 
-# Include custom functions
-if [ -d "${HOME}/.config/shell/functions.d" ]
-then
-	[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/functions.d"
-	find "${HOME}/.config/shell/functions.d" -type f -print0 | while IFS= read -r -d $'\0' file; do
-		. "${file}"
-	done
-fi
-
 [ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/aliases"
 source ~/.config/shell/aliases
 
@@ -100,6 +91,15 @@ if [ "$(lower $(uname))" = "linux" ]; then
 		[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/aliases.d/$(lower $(uname))-$(lower $(distro))"
 		source ~/.config/shell/aliases.d/$(lower $(uname))-$(lower $(distro))
 	fi
+fi
+
+# Include custom functions
+if [ -d "${HOME}/.config/shell/functions.d" ]
+then
+	[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/functions.d"
+	find "${HOME}/.config/shell/functions.d" -type f -print0 | while IFS= read -r -d $'\0' file; do
+		. "${file}"
+	done
 fi
 
 # show motd
