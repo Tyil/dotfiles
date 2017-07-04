@@ -1,0 +1,45 @@
+" enable pathogen for plugins
+execute pathogen#infect()
+execute pathogen#helptags()
+
+" enable fancy features
+filetype plugin indent on
+syntax enable
+colo jellybeans
+
+" vim settings
+set ai
+set cc=79
+set cuc
+set cul
+set fdm=syntax
+set lcs=tab:>-,trail:~
+set list
+set lz
+set nu
+set rnu
+set ru
+set scrolloff=666
+set si
+set sm
+set ut=500
+set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
+set wmnu
+
+" add hotkeys
+nmap <F6> :make<CR>
+
+" set normal numbering in insert mode
+au InsertEnter * :set nornu
+au InsertLeave * :set rnu
+
+" enable views by default
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
+
+" sudo write
+ca w!! w !sudo tee > /dev/null "%"
+
+ru leaderkeys.vim
+ru plugins.vim
+

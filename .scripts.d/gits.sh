@@ -44,7 +44,7 @@ update_git()
 	if [ ! -d "${destination}" ]
 	then
 		git clone "${repo}" "${destination}"
-		exit
+		return
 	fi
 
 	cwd=$(pwd)

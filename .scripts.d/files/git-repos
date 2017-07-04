@@ -1,2 +1,15 @@
-https://github.com/zsh-users/zsh-syntax-highlighting.git  ${XDG_CONFIG_DIR:-"${HOME}/.config"}/shell/bundles/zsh/zsh-syntax-highlighting
-
+https://github.com/zsh-users/zsh-syntax-highlighting.git  ~/.config/shell/bundles/zsh/zsh-syntax-highlighting
+https://github.com/Glench/Vim-Jinja2-Syntax.git           ~/.vim/bundle/syntax-jinja
+https://github.com/Tyil/CamelCaseMotion.git               ~/.vim/bundle/feature-camelcasemotion
+https://github.com/airblade/vim-gitgutter.git             ~/.vim/bundle/feature-gitgutter
+https://github.com/aklt/plantuml-syntax.git               ~/.vim/bundle/syntax-plantuml
+https://github.com/editorconfig/editorconfig-vim.git      ~/.vim/bundle/feature-editorconfig
+https://github.com/joonty/vdebug.git                      ~/.vim/bundle/feature-vdebug
+https://github.com/jwalton512/vim-blade.git               ~/.vim/bundle/syntax-blade
+https://github.com/kien/ctrlp.vim.git                     ~/.vim/bundle/feature-ctrlp
+https://github.com/leafgarland/typescript-vim.git         ~/.vim/bundle/syntax-typescript
+https://github.com/mxw/vim-jsx.git                        ~/.vim/bundle/syntax-jsx
+https://github.com/nanotech/jellybeans.vim                ~/.vim/bundle/theme-jellybeans
+https://github.com/tpope/vim-fugitive                     ~/.vim/bundle/feature-fugitive
+https://github.com/vim-perl/vim-perl6.git                 ~/.vim/bundle/syntax-perl6
+https://github.com/vim-syntastic/syntastic.git            ~/.vim/bundle/feature-syntastic
