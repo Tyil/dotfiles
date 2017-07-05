@@ -37,12 +37,12 @@ c()
 				dots=$((dots - 1))
 			done
 		fi
-
-		printf "%s\n" "$(pwd)" >> "${store}"
 	fi
 
 	cd "${destination}" || return 2
 	l
+
+	[ ! -z "$1" ] && printf "%s\n" "$(pwd)" >> "${store}"
 
 	unset destination dots store
 }
