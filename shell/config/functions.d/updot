@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+updot () {
+	"${HOME}/dotfiles/install.sh" && exec "${SHELL}"
+}
