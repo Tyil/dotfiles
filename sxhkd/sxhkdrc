@@ -1,0 +1,37 @@
+# spawn applications
+super + Return
+	termite
+
+super + d
+	commander_run
+
+super + e
+	dmenu_run
+
+# multimedia keys
+XF86Audio{Play,Stop,Prev,Next}
+	mpc -q {toggle,stop,prev,next}
+
+XF86Audio{Raise,Lower}Volume
+	amixer set Master 5%{+,-}
+
+XF86AudioMute
+	amixer set Master toggle
+
+XF86MonBrightness{Up,Down}
+	xbacklight {+,-}5%
+
+# lock screen
+super + shift + s
+	i3lock -c 000000
+
+# printscreens
+Print
+	sscrot
+
+shift + Print
+	wscrot
+
+# make sxhkd reload its configuration files:
+#super + shift + r
+#	pkill -USR1 -x sxhkd
