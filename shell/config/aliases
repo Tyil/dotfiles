@@ -25,6 +25,7 @@ alias vs="v start"
 # }}}
 
 # other aliases {{{
+alias :q="exit"
 alias bc="bc -i ~/.config/bcrc"
 alias e="vim"
 alias g="grep --color=always -i"
