@@ -1,6 +1,8 @@
 #! /usr/bin/env sh
 
-SHELLSTORE=$(mktemp -d -t "shellstore_XXXXX")
+if [ -z "${SHELLSTORE}" ]
+then
+	SHELLSTORE=$(mktemp -d -t "shellstore_XXXXX")
 
-export SHELLSTORE
-
+	export SHELLSTORE
+fi
