@@ -5,106 +5,110 @@
 # Apparently tmux likes to unset your PATH variable. As a workaround the PATH
 # will be unset completely at the start of this script, then reset using this
 # script. This was the only viable method for me to keep my PATH clean
-
-[ $DEBUG_DOTFILES ] && echo "Unsetting PATH"
+[ "${DEBUG_DOTFILES}" ] && echo "Unsetting PATH"
 unset PATH
 
-[ $DEBUG_DOTFILES ] && echo "Setting PATH"
-PATH=$HOME/.local/bin
-PATH=$PATH:$HOME/.scripts/generic
-PATH=$PATH:$HOME/.config/shell/wrappers.d
-PATH=$PATH:$HOME/.cabal/bin
-PATH=$PATH:$HOME/.perl6/bin
-PATH=$PATH:/bin
-PATH=$PATH:/sbin
-PATH=$PATH:/usr/bin
-PATH=$PATH:/usr/sbin
-PATH=$PATH:/usr/local/bin
-PATH=$PATH:/usr/local/sbin
-PATH=$PATH:/usr/games/bin
-PATH=$PATH:/opt/bin
-PATH=$PATH:/usr/x86_64-pc-linux-gnu/gcc-bin/4.8.4
+[ "${DEBUG_DOTFILES}" ] && echo "Setting PATH"
+PATH="${HOME}/.local/bin"
+PATH="${PATH}:${HOME}/.scripts/generic"
+PATH="${PATH}:${HOME}/.config/shell/wrappers.d"
+PATH="${PATH}:${HOME}/.cabal/bin"
+PATH="${PATH}:${HOME}/.perl6/bin"
+PATH="${PATH}:/bin"
+PATH="${PATH}:/sbin"
+PATH="${PATH}:/usr/bin"
+PATH="${PATH}:/usr/sbin"
+PATH="${PATH}:/usr/local/bin"
+PATH="${PATH}:/usr/local/sbin"
+PATH="${PATH}:/usr/games/bin"
+PATH="${PATH}:/opt/bin"
+PATH="${PATH}:/usr/x86_64-pc-linux-gnu/gcc-bin/4.8.4"
 
 if [ -d "/opt/VirtualBox" ]; then
 	PATH=$PATH:/opt/VirtualBox
 fi
 
-[ $DEBUG_DOTFILES ] && echo "Setting FPATH"
+[ "${DEBUG_DOTFILES}" ] && echo "Setting FPATH"
 FPATH="${HOME}/.config/shell/completion ${FPATH}"
 
-[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/env"
-source ~/.config/shell/env
+[ "${DEBUG_DOTFILES}" ] && echo "Sourcing ~/.config/shell/env"
+# shellcheck disable=SC1090
+. "${HOME}/.config/shell/env"
 
 # extends the path with OS specific scripts
-if [ -d ~/.scripts/$(lower $(uname)) ]; then
-	[ $DEBUG_DOTFILES ] && echo "Extending PATH with ~/.scripts/$(lower $(uname))"
-	PATH=~/.scripts/$(lower $(uname)):$PATH
+if [ -d "${HOME}/.scripts/$(lower "$(uname)")" ]; then
+	[ "${DEBUG_DOTFILES}" ] && echo "Extending PATH with ~/.scripts/$(lower "$(uname)")"
+	PATH="${HOME}/.scripts/$(lower "$(uname)"):${PATH}"
 fi
 
 # extend the path with OS specific wrappers
-if [ -d ~/.config/shell/wrappers-$(lower $(uname)).d/ ]; then
-	[ $DEBUG_DOTFILES ] && echo "Extending PATH with ~/.config/shell/wrappers-$(lower $(uname)).d"
-	PATH=~/.config/shell/wrappers-$(lower $(uname)).d:$PATH
+if [ -d "${HOME}/.config/shell/wrappers-$(lower "$(uname)").d" ]; then
+	[ "${DEBUG_DOTFILES}" ] && echo "Extending PATH with ~/.config/shell/wrappers-$(lower "$(uname)").d"
+	PATH="${HOME}/.config/shell/wrappers-$(lower "$(uname)").d:${PATH}"
 fi
 
 # if on GNU+Linux, check for distro-specific files
-if [ "$(lower $(uname))" = "linux" ]; then
+if [ "$(lower "$(uname)")" = "linux" ]; then
 	# extend the path with distro-specific scripts
-	if [ -d ~/.scripts/$(lower $(uname))-$(lower $(distro)) ]; then
-		[ $DEBUG_DOTFILES ] && echo "Extending PATH with ~/.scripts/$(lower $(uname))-$(lower $(distro))"
-		PATH=~/.scripts/$(lower $(uname))-$(lower $(distro)):$PATH
+	if [ -d "${HOME}/.scripts/$(lower "$(uname)")-$(lower "$(distro)")" ]; then
+		[ "${DEBUG_DOTFILES}" ] && echo "Extending PATH with ~/.scripts/$(lower "$(uname)")-$(lower "$(distro)")"
+		PATH="${HOME}/.scripts/$(lower "$(uname)")-$(lower "$(distro)"):${PATH}"
 	fi
 
 	# extend the path with distro-specific wrappers
-	if [ -d ~/.config/shell/wrappers-$(lower $(uname))-$(lower $(distro)).d ]; then
-		[ $DEBUG_DOTFILES ] && echo "Extending PATH with ~/.config/shell/wrappers-$(lower $(uname))-$(lower $(distro)).d"
-		PATH=~/.config/shell/wrappers-$(lower $(uname))-$(lower $(distro)).d:$PATH
+	if [ -d "${HOME}/.config/shell/wrappers-$(lower "$(uname)")-$(lower "$(distro)").d" ]; then
+		[ "${DEBUG_DOTFILES}" ] && echo "Extending PATH with ~/.config/shell/wrappers-$(lower "$(uname)")-$(lower "$(distro)").d"
+		PATH="${HOME}/.config/shell/wrappers-$(lower "$(uname)")-$(lower "$(distro)").d:${PATH}"
 	fi
 fi
 
 # if ruby is installed and we have a gems folder, include it in the path
-if [ -n "$(ruby -v 2&> /dev/null)" ]; then
+if [ -n "$(ruby -v > /dev/null)" ]; then
 	GEMDIR="$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 
-	if [ -d $GEMDIR ]; then
-		[ $DEBUG_DOTFILES ] && echo "Extending PATH with $GEMDIR"
-		PATH=$GEMDIR:$PATH
+	if [ -d "${GEMDIR}" ]; then
+		[ "${DEBUG_DOTFILES}" ] && echo "Extending PATH with ${GEMDIR}"
+		PATH="${GEMDIR}:${PATH}"
 	fi
 fi
 
 # export the extended PATH
 export PATH
 
-[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/aliases"
-source ~/.config/shell/aliases
+[ "${DEBUG_DOTFILES}" ] && echo "Sourcing ~/.config/shell/aliases"
+# shellcheck disable=SC1090
+. "${HOME}/.config/shell/aliases"
 
-# source OS specific aliases
-if [ -f ~/.config/shell/aliases.d/$(lower $(uname)) ]; then
-	[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/aliases.d/$(lower $(uname))"
-	source ~/.config/shell/aliases.d/$(lower $(uname))
+# . OS specific aliases
+if [ -f "${HOME}/.config/shell/aliases.d/$(lower "$(uname)")" ]; then
+	[ "${DEBUG_DOTFILES}" ] && echo "Sourcing ~/.config/shell/aliases.d/$(lower "$(uname)")"
+	# shellcheck disable=SC1090
+	. "${HOME}/.config/shell/aliases.d/$(lower "$(uname)")"
 fi
 
 # if on GNU+Linux, check for distro-specific files
-if [ "$(lower $(uname))" = "linux" ]; then
-	# source distro-specific aliases
-	if [ -f ~/.config/shell/aliases.d/$(lower $(uname))-$(lower $(distro)) ]; then
-		[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/aliases.d/$(lower $(uname))-$(lower $(distro))"
-		source ~/.config/shell/aliases.d/$(lower $(uname))-$(lower $(distro))
+if [ "$(lower "$(uname)")" = "linux" ]; then
+	# . distro-specific aliases
+	if [ -f "${HOME}/.config/shell/aliases.d/$(lower "$(uname)")-$(lower "$(distro)")" ]; then
+		[ "${DEBUG_DOTFILES}" ] && echo "Sourcing ~/.config/shell/aliases.d/$(lower "$(uname)")-$(lower "$(distro)")"
+		# shellcheck disable=SC1090
+		. "${HOME}/.config/shell/aliases.d/$(lower "$(uname)")-$(lower "$(distro)")"
 	fi
 fi
 
 # Include custom functions
 if [ -d "${HOME}/.config/shell/functions.d" ]
 then
-	[ $DEBUG_DOTFILES ] && echo "Sourcing ~/.config/shell/functions.d"
-	find "${HOME}/.config/shell/functions.d" -type f -print0 | while IFS= read -r -d $'\0' file; do
-		. "${file}"
+	[ "${DEBUG_DOTFILES}" ] && echo "Sourcing ~/.config/shell/functions.d"
+	for func in "${HOME}/.config/shell/functions.d/"*
+	do
+		# shellcheck disable=SC1090
+		. "${func}"
 	done
 fi
 
 # show motd
-if [ -f ~/.config/shell/motd ]; then
-	[ $DEBUG_DOTFILES ] && echo "Reading motd"
-	cat ~/.config/shell/motd
+if [ -f "${HOME}/.config/shell/motd" ]; then
+	[ "${DEBUG_DOTFILES}" ] && echo "Reading motd"
+	cat "${HOME}/.config/shell/motd"
 fi
-
