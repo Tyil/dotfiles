@@ -3,6 +3,7 @@
 readonly DOTDIR="${HOME}/dotfiles"
 
 expand() {
+	# shellcheck disable=SC2016
 	string=$(echo "$1" | sed 's|^~/|${HOME}/|')
 	delimiter="__apply_shell_expansion_delimiter__"
 	command="cat << $(printf "%s\n%s\n%s" "$delimiter" "$string" "$delimiter")"
@@ -16,20 +17,20 @@ get_dotdir()
 
 	if [ ! -d "${DOTDIR}" ]
 	then
-		git clone https://github.com/tyil/dotfiles.git "${DOTDIR}" 2>&1 > /dev/null
+		git clone https://github.com/tyil/dotfiles.git "${DOTDIR}" > /dev/null 2>&1
 
 		return
 	fi
 
 	cd "${DOTDIR}"
-	git pull 2>&1 > /dev/null
+	git pull > /dev/null 2>&1
 	cd "${cwd}"
 }
 
 install_file()
 {
-	file_base="$(expand ${DOTDIR}/$1)"
-	file_target="$(expand $2)"
+	file_base="$(expand "${DOTDIR}/$1")"
+	file_target="$(expand "$2")"
 	file_target_dir=$(dirname "${file_target}")
 
 	# Ensure the base exists
@@ -64,7 +65,7 @@ install_dir()
 {
 	dir_base="${DOTDIR}/$1"
 	dir_cwd=$(pwd)
-	dir_target="$(expand $2)"
+	dir_target="$(expand "$2")"
 
 	# Ensure the base exists
 	if [ ! -d "${dir_base}" ]
@@ -74,18 +75,22 @@ install_dir()
 	fi
 
 	cd "${dir_base}"
-	find . -type f -print0 | while IFS= read -r -d $'\0' dir_i; do
+
+	for dir_i in **/*
+	do
 		dir_file="$(echo "${dir_i}" | sed 's|^./||')"
 		install_file "$1/${dir_file}" "${dir_target}/${dir_file}"
 	done
+
+	unset OFS
 
 	cd "${dir_cwd}"
 }
 
 base_newer()
 {
-	base_mod=$(perl -IFile::Stat -e 'print((stat("'$1'"))[9])')
-	target_mod=$(perl -IFile::Stat -e 'print((stat("'$2'"))[9])')
+	base_mod="$(perl -IFile::Stat -e 'print((stat("'"$1"'"))[9])')"
+	target_mod="$(perl -IFile::Stat -e 'print((stat("'"$2"'"))[9])')"
 
 	if [ "${target_mod}" -lt "${base_mod}" ]
 	then
@@ -114,7 +119,10 @@ main()
 			continue
 		fi
 
-		install_file $line
+		source=$(echo "$line" | awk '{ print $1 }')
+		dest=$(echo "$line" | awk '{ print $2 }')
+
+		install_file "${source}" "${dest}"
 	done < "${DOTDIR}/.files"
 
 	# Install all directories
@@ -126,7 +134,10 @@ main()
 			continue
 		fi
 
-		install_dir $line
+		source=$(echo "$line" | awk '{ print $1 }')
+		dest=$(echo "$line" | awk '{ print $2 }')
+
+		install_dir "${source}" "${dest}"
 	done < "${DOTDIR}/.dirs"
 
 	# Run additional scripts

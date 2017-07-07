@@ -17,12 +17,16 @@ main()
 			continue
 		fi
 
-		update_git $line
+		source=$(echo "$line" | awk '{ print $1 }')
+		dest=$(echo "$line" | awk '{ print $2 }')
+
+		update_git "${source}" "${dest}"
 	done < "${REPOFILE}"
 	
 }
 
 expand() {
+	# shellcheck disable=SC2016
 	string=$(echo "$1" | sed 's|^~/|${HOME}/|')
 	delimiter="__apply_shell_expansion_delimiter__"
 	command="cat << $(printf "%s\n%s\n%s" "$delimiter" "$string" "$delimiter")"
@@ -44,13 +48,14 @@ update_git()
 
 	if [ ! -d "${destination}" ]
 	then
-		git clone "${repo}" "${destination}" 2>&1 > /dev/null
+		git clone "${repo}" "${destination}" > /dev/null 2>&1
+
 		return
 	fi
 
 	cwd=$(pwd)
 	cd "${destination}"
-	git pull 2>&1 > /dev/null
+	git pull > /dev/null 2>&1
 	cd "${cwd}"
 }
 
