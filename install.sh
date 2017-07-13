@@ -22,8 +22,10 @@ get_dotdir()
 		return
 	fi
 
+	# shellcheck disable=SC2164
 	cd "${DOTDIR}"
 	git pull > /dev/null 2>&1
+	# shellcheck disable=SC2164
 	cd "${cwd}"
 }
 
@@ -74,6 +76,7 @@ install_dir()
 		return 2
 	fi
 
+	# shellcheck disable=SC2164
 	cd "${dir_base}"
 
 	for dir_i in *
@@ -88,6 +91,7 @@ install_dir()
 		install_file "$1/${dir_file}" "${dir_target}/${dir_file}"
 	done
 
+	# shellcheck disable=SC2164
 	cd "${dir_cwd}"
 }
 
