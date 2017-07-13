@@ -76,13 +76,17 @@ install_dir()
 
 	cd "${dir_base}"
 
-	for dir_i in **/*
+	for dir_i in *
 	do
+		if [ -d "${dir_i}" ]
+		then
+			install_dir "$1/${dir_i}" "$2/${dir_i}"
+			continue
+		fi
+
 		dir_file="$(echo "${dir_i}" | sed 's|^./||')"
 		install_file "$1/${dir_file}" "${dir_target}/${dir_file}"
 	done
-
-	unset OFS
 
 	cd "${dir_cwd}"
 }
