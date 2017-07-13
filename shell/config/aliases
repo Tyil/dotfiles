@@ -12,7 +12,7 @@ alias mp="mpc toggle > /dev/null"
 # }}}
 
 # tmux aliases {{{
-alias t="tmux -2 -u"
+alias t="tmux -2 -f ~/.config/tmux/conf -u"
 # }}}
 
 # virsh aliases {{{

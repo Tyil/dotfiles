@@ -3,3 +3,4 @@ shell/scripts  ~/.scripts
 vim            ~/.vim
 sxhkd          ~/.config/sxhkd
 git            ~/.config/git
+tmux           ~/.config/tmux

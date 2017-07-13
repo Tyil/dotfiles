@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-t="tmux -2 -u"
+t="tmux -2 -f ~/.config/tmux/conf -u"
 
-if [ -z "$1" ]; then
+if [ -z "$1" ]
+then
 	session=$(hostname -s)
 else
 	session=$(hostname -s)/$1

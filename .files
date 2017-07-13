@@ -1,3 +1,1 @@
 shell/rc/zshrc  ${HOME}/.zshrc
-tmux/tmux.conf  ${HOME}/.tmux.conf
-tmux/status-right.pl  ${HOME}/.config/tmux/status-right.pl
