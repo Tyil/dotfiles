@@ -2,6 +2,9 @@
 # Author:  Patrick Spek <p.spek@tyil.nl>
 # License: BSD 3-clause license
 
+# Force terminal type
+export TERM=screen-256color
+
 # Set locale
 export LANG="en_US.UTF-8"
 export LESSCHARSET="utf-8"
