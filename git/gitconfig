@@ -1,0 +1,38 @@
+[alias]
+	a   = add
+	b   = branch
+	c   = commit -S
+	ct  = tag -s
+	d   = diff
+	co  = checkout
+	cob = checkout -b
+	l   = log --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(6)%ad %C(3)%h%Creset %s %C(7)by %C(2)%ae%C(7):%C(5)%G?'
+	lg  = log --graph --abbrev-commit --decorate --date=relative --all
+	p   = push
+	pa  = push-all
+	r   = rebase --preserve-merges -i -S
+	rc  = commit --amend --no-edit -S -a
+	rn  = rebase --continue
+	s   = status -s
+	t   = tag
+
+[commit]
+	gpgsign = true
+
+[core]
+	pager        = less -R
+	excludesfile = ~/.config/gitignore
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[push]
+	default = simple
+
+[user]
+	email      = p.spek@tyil.nl
+	name       = Patrick Spek
+	signingkey = 9ACFE193FFBC1F50

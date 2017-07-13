@@ -2,3 +2,4 @@ shell/config   ~/.config/shell
 shell/scripts  ~/.scripts
 vim            ~/.vim
 sxhkd          ~/.config/sxhkd
+git            ~/.config/git
