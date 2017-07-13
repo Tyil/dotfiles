@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-t="tmux -2 -f ~/.config/tmux/conf -u"
+t="tmux -2 -f ${HOME}/.config/tmux/conf -u"
 
 if [ -z "$1" ]
 then
@@ -9,5 +9,5 @@ else
 	session=$(hostname -s)/$1
 fi
 
-${t} attach -t ${session} || ${t} new-session -s ${session}
+${t} attach -t "${session}" || ${t} new-session -s "${session}"
 
