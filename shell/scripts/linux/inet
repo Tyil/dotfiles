@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-address=`ifconfig $1 | grep "inet " | awk '{ print $2 }'`
+address=$(ifconfig "$1" | grep "inet " | awk '{ print $2 }')
 
-if [[ -z "$address" ]]; then
+if [ -z "$address" ]
+then
 	echo "No internet"
 	exit
 fi
