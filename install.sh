@@ -67,7 +67,6 @@ install_dir()
 {
 	dir_base="${DOTDIR}/$1"
 	dir_cwd=$(pwd)
-	dir_target="$(expand "$2")"
 
 	# Ensure the base exists
 	if [ ! -d "${dir_base}" ]
@@ -88,7 +87,7 @@ install_dir()
 		fi
 
 		dir_file="$(echo "${dir_i}" | sed 's|^./||')"
-		install_file "$1/${dir_file}" "${dir_target}/${dir_file}"
+		install_file "$1/${dir_file}" "$(expand "$2")/${dir_file}"
 	done
 
 	# shellcheck disable=SC2164
