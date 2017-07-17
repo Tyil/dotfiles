@@ -63,7 +63,7 @@ if [ "$(lower "$(uname)")" = "linux" ]; then
 fi
 
 # if ruby is installed and we have a gems folder, include it in the path
-if [ -n "$(ruby -v > /dev/null)" ]; then
+if [ -n "$(ruby -v > /dev/null 2>&1)" ]; then
 	GEMDIR="$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 
 	if [ -d "${GEMDIR}" ]; then
