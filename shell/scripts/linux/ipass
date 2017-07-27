@@ -1,0 +1,14 @@
+#! /usr/bin/env sh
+
+main()
+{
+	cd "${HOME}/.password-store" || exit 1
+
+	file=$(find ./* -type f | sed 's-^\./--' | sed 's-\.gpg$--' | dmenu)
+	plain=$(pass show "${file}")
+
+	notify-send "ipass" "${file}"
+	xdotool type "${plain}"
+}
+
+main "$@"
