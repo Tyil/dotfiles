@@ -5,6 +5,13 @@ main()
 	cd "${HOME}/.password-store" || exit 1
 
 	file=$(find ./* -type f | sed 's-^\./--' | sed 's-\.gpg$--' | dmenu)
+	dmenu_exit=$?
+
+	if [ "${dmenu_exit}" -ne 0 ]
+	then
+		exit 2
+	fi
+
 	plain=$(pass show "${file}")
 
 	notify-send "ipass" "${file}"
