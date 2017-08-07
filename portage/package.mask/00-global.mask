@@ -1,0 +1,5 @@
+# harmful™ software
+sys-apps/systemd
+
+# unwanted packages
+net-misc/networkmanager

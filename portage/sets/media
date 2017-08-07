@@ -1,0 +1,8 @@
+media-libs/gstreamer
+media-plugins/mediastreamer-x264
+media-sound/alsa-utils
+media-sound/mpc
+media-sound/mpd
+media-sound/ncmpc
+virtual/ffmpeg
+media-video/mpv

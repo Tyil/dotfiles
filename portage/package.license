@@ -1,0 +1,28 @@
+# linux-firmware is damn handy if you want a usable system
+sys-kernel/linux-firmware freedist
+
+# the kernel sources require freedist
+sys-kernel/*-sources freedist
+
+# required for xorg-x11
+media-fonts/font-bh-type1 bh-luxi
+media-fonts/font-bh-ttf bh-luxi
+
+# muh games
+games-misc/opensfx CC-Sampling-Plus-1.0
+games-util/steam-launcher ValveSteamLicense
+media-fonts/steamfonts MSttfEULA
+
+# people using silly proprietary archive formats
+app-arch/unrar unRAR
+app-text/calibre unRAR
+
+# filthy vmware garbage for school, honestly, gas these fuckers already
+app-emulation/vmware-workstation vmware
+app-emulation/vmware-tools vmware
+dev-util/staruml-bin StarUML-EULA
+
+# filthy intellij
+dev-util/idea-ultimate IDEA IDEA_Academic IDEA_Classroom IDEA_OpenSource IDEA_Personal
+dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
+

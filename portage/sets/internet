@@ -1,0 +1,8 @@
+net-firewall/ufw
+net-misc/connman
+net-vpn/tor
+net-misc/youtube-dl
+net-proxy/privoxy
+www-client/chromium
+www-client/palemoon
+www-client/qutebrowser

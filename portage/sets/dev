@@ -1,0 +1,12 @@
+# languages
+dev-lang/go
+dev-lang/php
+dev-lang/ruby
+net-libs/nodejs
+
+# databases
+dev-db/mongodb
+dev-db/postgresql
+
+# IDEs
+dev-util/android-studio

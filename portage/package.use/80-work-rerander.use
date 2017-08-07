@@ -1,0 +1,4 @@
+dev-lang/php cgi fpm sockets mysqli soap zip
+app-eselect/eselect-php fpm
+dev-lang/php xmlwriter
+

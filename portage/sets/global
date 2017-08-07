@@ -1,0 +1,15 @@
+app-admin/pass
+app-admin/sudo
+app-admin/syslog-ng
+app-editors/vim
+app-misc/ranger
+app-misc/tmux
+app-portage/eix
+app-shells/zsh
+mail-client/mutt
+net-misc/keychain
+net-misc/mosh
+sys-auth/polkit
+sys-apps/firejail
+sys-process/htop
+sys-process/lsof
