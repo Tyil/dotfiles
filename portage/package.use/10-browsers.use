@@ -1,0 +1,16 @@
+# Chromium
+www-client/chromium -hangouts -proprietary-codecs
+
+# Palemoon
+www-client/palemoon -alsa -dbus -official-branding
+
+# Qutebrowser
+www-client/qutebrowser gstreamer
+dev-python/PyQt5 declarative
+dev-qt/qtwebkit gstreamer
+
+# Qupzilla
+www-client/qupzilla -dbus
+dev-qt/qtwebchannel qml
+dev-qt/qtwebengine widgets
+media-libs/libvpx svc
