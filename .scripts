@@ -1,2 +1,3 @@
+.scripts.d/skel.sh
 .scripts.d/tmux-setup.sh
 .scripts.d/gits.sh
