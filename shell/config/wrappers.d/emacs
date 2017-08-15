@@ -1,8 +1,37 @@
 #!/usr/bin/env sh
 
-# disable proxies because it kills spacemacs for a minute or 5
-eval $(proxy-toggle off)
+readonly CLIENT=/usr/bin/emacsclient
+readonly DAEMON=/usr/bin/emacs
 
-# start emacs
-/usr/bin/emacs "$@"
+main()
+{
+	# Disable proxies because it kills spacemacs for a minute or 5
+	$(proxy-toggle off)
 
+	# Start daemon if needed
+	start_daemon
+
+	# Start emacs in the cwd if no args provided
+	if [ "$#" -lt 1 ]
+	then
+		$CLIENT -c .
+		return
+	fi
+
+	# Start emacs with the given arguments
+	$CLIENT "$@"
+}
+
+start_daemon()
+{
+	# Check if emacs is already running as daemon
+	if pgrep -fail emacs | grep -q 'emacs \-\-daemon'
+	then
+		return 1
+	fi
+
+	$DAEMON --daemon
+	return 0
+}
+
+main "$@"
