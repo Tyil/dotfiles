@@ -11,6 +11,8 @@
 
 ; Set custom look & feel
 (load-theme 'wombat t)
+(global-linum-mode t)
+(global-hl-line-mode t)
 (load "~/.emacs.d/keys.el")
 
 ; Enable recent files on startup
@@ -31,6 +33,16 @@
         (load-directory fullpath))
        ((and (eq isdir nil) (string= (substring path -3) ".el"))
         (load (file-name-sans-extension fullpath)))))))
+
+; Make use of use-package to automatically install packages if they're missing
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+; Make use-package auto-install everything
+(eval-when-compile
+  (require 'use-package)
+  (setq use-package-always-ensure t))
 
 ; Load directory with all plugin configurations
 (load-directory "~/.emacs.d/plugins")
