@@ -86,7 +86,7 @@ install_dir()
 			continue
 		fi
 
-		dir_file="$(echo "${dir_i}" | sed 's|^./||')"
+		dir_file="$(echo "${dir_i}" | sed 's|^\./||')"
 		install_file "$1/${dir_file}" "$(expand "$2")/${dir_file}"
 	done
 
