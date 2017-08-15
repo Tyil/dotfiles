@@ -1,4 +1,4 @@
-(use-package 'helm-config)
+(use-package helm-config)
 
 (global-set-key "\M-x" 'helm-M-x)
 (global-set-key "\C-x\C-f" 'helm-find-files)

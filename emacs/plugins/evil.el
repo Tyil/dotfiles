@@ -1,3 +1,3 @@
-(use-package 'evil)
+(use-package evil)
 
 (evil-mode 1)
