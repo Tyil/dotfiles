@@ -1,6 +1,7 @@
+emacs          ~/.emacs.d
+git            ~/.config/git
 shell/config   ~/.config/shell
 shell/scripts  ~/.scripts
-vim            ~/.vim
 sxhkd          ~/.config/sxhkd
-git            ~/.config/git
 tmux           ~/.config/tmux
+vim            ~/.vim
