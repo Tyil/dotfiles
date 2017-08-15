@@ -2,6 +2,7 @@
 
 readonly CLIENT=/usr/bin/emacsclient
 readonly DAEMON=/usr/bin/emacs
+readonly LOG="${HOME}/.local/var/log/emacs"
 
 main()
 {
@@ -30,7 +31,13 @@ start_daemon()
 		return 1
 	fi
 
-	$DAEMON --daemon
+	# Make sure the log directory exists
+	if [ ! -d "${LOG}" ]
+	then
+		mkdir -p "${LOG}" || echo "Could not create ${LOG}" && exit 1
+	fi
+
+	$DAEMON --daemon 2>> "${LOG}"
 	return 0
 }
 
