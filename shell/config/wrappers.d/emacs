@@ -31,11 +31,15 @@ start_daemon()
 		return 1
 	fi
 
+	logdir=$(dirname "${LOG}")
+
 	# Make sure the log directory exists
-	if [ ! -d "${LOG}" ]
+	if [ ! -d "${logdir}" ]
 	then
-		mkdir -p "${LOG}" || echo "Could not create ${LOG}" && exit 1
+		mkdir -p "${logdir}" || echo "Could not create ${LOG}" && exit 1
 	fi
+
+	unset logdir
 
 	$DAEMON --daemon 2>> "${LOG}"
 	return 0
