@@ -1,1 +1,2 @@
 shell/rc/zshrc  ${HOME}/.zshrc
+npm/npmrc       ${HOME}/.npmrc
