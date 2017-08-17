@@ -1,0 +1,5 @@
+# Chromium
+media-libs/openh264 ~*
+
+# Qutebrowser
+media-libs/speexdsp ~*
