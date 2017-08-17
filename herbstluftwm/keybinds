@@ -1,0 +1,66 @@
+#!/bin/bash
+
+hc() {
+	herbstclient "$@"
+}
+
+Mod=Mod4
+
+# keybindings
+hc keybind $Mod-Shift-x  quit
+hc keybind $Mod-Shift-r  reload
+hc keybind $Mod-x        close
+hc keybind $Mod-f        fullscreen toggle
+hc keybind $Mod-p        pseudotile toggle
+
+# cycle through tags
+hc keybind $Mod-comma         use_index +1 --skip-visible
+hc keybind $Mod-period        use_index -1 --skip-visible
+hc keybind $Mod-asterisk      use_index 0
+hc keybind $Mod-bracketleft   use_index 1
+hc keybind $Mod-braceleft     use_index 2
+hc keybind $Mod-parenleft     use_index 3
+hc keybind $Mod-equal         use_index 4
+hc keybind $Mod-plus          use_index 5
+hc keybind $Mod-parenright    use_index 6
+hc keybind $Mod-braceright    use_index 7
+hc keybind $Mod-bracketright  use_index 8
+
+# layouts
+hc keybind $Mod-space            cycle_layout 1
+hc keybind $Mod-minus            remove
+hc keybind $Mod-slash            split vertical 0.5
+hc keybind $Mod-bar              split horizontal 0.5
+hc keybind $Mod-Control-Shift-h  resize left  +0.05
+hc keybind $Mod-Control-Shift-j  resize down  +0.05
+hc keybind $Mod-Control-Shift-k  resize up    +0.05
+hc keybind $Mod-Control-Shift-l  resize right +0.05
+
+# switch monitor
+hc keybind $Mod-Control-j  focus_monitor -1
+hc keybind $Mod-Control-k  focus_monitor +1
+hc keybind $Mod-a          focus_monitor 1
+
+# switch focus
+hc keybind $Mod-h          focus left
+hc keybind $Mod-j          focus down
+hc keybind $Mod-k          focus up
+hc keybind $Mod-l          focus right
+hc keybind $Mod-Tab        cycle +1
+hc keybind $Mod-Shift-Tab  cycle -1
+
+# move focus
+hc keybind $Mod-Shift-h             shift left
+hc keybind $Mod-Shift-j             shift down
+hc keybind $Mod-Shift-k             shift up
+hc keybind $Mod-Shift-l             shift right
+hc keybind $Mod-Shift-asterisk      move_index 0
+hc keybind $Mod-Shift-bracketleft   move_index 1
+hc keybind $Mod-Shift-braceleft     move_index 2
+hc keybind $Mod-Shift-parenleft     move_index 3
+hc keybind $Mod-Shift-equal         move_index 4
+hc keybind $Mod-Shift-plus          move_index 5
+hc keybind $Mod-Shift-parenright    move_index 6
+hc keybind $Mod-Shift-braceright    move_index 7
+hc keybind $Mod-Shift-bracketright  move_index 8
+

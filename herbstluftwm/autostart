@@ -1,0 +1,59 @@
+#! /usr/bin/env bash
+
+hc() {
+    herbstclient "$@"
+}
+
+hc emit_hook reload
+
+# remove all existing keybindings
+hc keyunbind --all
+
+# keybindings
+Mod=Mod4   # Use the super key as the main modifier
+
+# tags
+tag_names=( "work" "social" "web" "email" "media" "vms" "games" "VIII" "IX" )
+
+# fix the first tag name
+hc rename default "${tag_names[0]}" || true
+
+# set default layouts
+hc set default_frame_layout 3
+
+# fix layout on the first tag
+hc split vertical 0.5 && hc remove
+
+# create all tags
+for i in ${!tag_names[@]} ; do
+    hc add "${tag_names[$i]}"
+done
+
+source ${HOME}/.config/herbstluftwm/keybinds
+source ${HOME}/.config/herbstluftwm/mousebinds
+source ${HOME}/.config/herbstluftwm/theme
+source ${HOME}/.config/herbstluftwm/rules
+
+# unlock, just to be sure
+hc unlock
+
+herbstclient set tree_style '╾│ ├└╼─┐'
+
+# do multi monitor setup here, e.g.:
+# hc set_monitors 1280x1024+0+0 1280x1024+1280+0
+# or simply:
+hc detect_monitors
+
+# find the panel
+panel=~/.config/herbstluftwm/panel.sh
+
+if [ -x "$panel" ]
+then
+	for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
+		# start it on each monitor
+		"$panel" $monitor &
+	done
+else
+	notify-send "Could not start panel" "The script at $panel is not executable"
+fi
+

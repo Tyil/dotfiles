@@ -1,10 +1,13 @@
+awesome        ~/.config/awesome
 emacs          ~/.emacs.d
 git            ~/.config/git
+herbstluftwm   ~/.config/herbstluftwm
 ncmpc          ~/.ncmpc
 ncmpcpp        ~/.ncmpcpp
 shell/config   ~/.config/shell
 shell/scripts  ~/.scripts
 sxhkd          ~/.config/sxhkd
+termite        ~/.config/termite
 tmux           ~/.config/tmux
 vim            ~/.vim
 x/init.d       ~/.xinit

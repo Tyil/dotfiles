@@ -1,0 +1,28 @@
+[options]
+browser      = chromium-browser
+cursor_blink = off
+font         = Liberation Mono 9
+
+[colors]
+foreground = #eeeeee
+background = rgba(0, 0, 0, 0.90)
+#FFC66D
+
+color0  = #393939
+color1  = #ca674a
+color2  = #6BC260
+color3  = #d3a94a
+color4  = #4C679A
+color5  = #9c35ac
+color6  = #6eb5f3
+color7  = #a9a9a9
+color8  = #535551
+color9  = #ea2828
+color10 = #87dd32
+color11 = #FFC66D
+color12 = #355DB0
+#color12 = #4C679A
+color13 = #9050D8
+color14 = #32dddd
+color15 = #e9e9e7
+
