@@ -9,17 +9,6 @@
 
 (setq package-archive-enable-alist '(("melpa" deft magit)))
 
-; Set custom look & feel
-(load-theme 'monokai t)
-(global-linum-mode t)
-(global-hl-line-mode t)
-(load "~/.emacs.d/keys.el")
-
-; Enable recent files on startup
-(recentf-mode 1)
-(setq recentf-max-menu-items 50)
-(run-at-time nil (* 5 60) 'recentf-save-list)
-
 ; Define function to load entire directories
 (defun load-directory (directory)
   "Load recursively all `.el' files in DIRECTORY."
@@ -44,8 +33,17 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
-; Load directory with all plugin configurations
-(load-directory "~/.emacs.d/plugins")
+; Set custom look & feel
+(load "~/.emacs.d/laf.el")
+(load "~/.emacs.d/keys.el")
+
+; Enable recent files on startup
+(recentf-mode 1)
+(setq recentf-max-menu-items 50)
+(run-at-time nil (* 5 60) 'recentf-save-list)
+
+; Load all packages
+(load-directory "~/.emacs.d/packages")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
