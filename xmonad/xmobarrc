@@ -1,0 +1,16 @@
+Config { font = "xft:Liberation Mono:size=10:antialias=true"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , commands = [ Run Cpu [ "-t", "cpu: <fc=#ffffff><total></fc>%" ] 10
+                    , Run Memory [ "-t", "ram: <fc=#ffffff><usedratio></fc>%" ] 10
+                    , Run Date "%Y-%m-%d <fc=#ffffff>%H:%M</fc>" "date" 10
+                    , Run DynNetwork [ "-t", "<dev>: <fc=#ffffff><tx></fc>kB/<fc=#ffffff><rx></fc>kB" ] 10
+                    , Run Volume "default" "Master" [ "-t", "volume: <fc=#ffffff><volume></fc>%" ] 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "$"
+       , alignSep = "}{"
+       , template = " $StdinReader$ }$date${ $dynnetwork$ ║ $default:Master$ ║ $cpu$ ║ $memory$ "
+       }
+
