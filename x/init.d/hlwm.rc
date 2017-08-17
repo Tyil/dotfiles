@@ -1,0 +1,5 @@
+# start some required stuff
+pulseaudio --start
+
+# finally, run the wm of choice
+exec herbstluftwm

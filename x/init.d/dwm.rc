@@ -1,0 +1,10 @@
+# start some userlevel services
+pulseaudio --start
+nm-applet &
+
+# start a compositor
+compton -bcfzC -D4 --backend glx --vsync opengl-swc
+
+# finally, run the wm of choice
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session dwm
+

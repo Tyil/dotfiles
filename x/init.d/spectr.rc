@@ -1,0 +1,7 @@
+# start some userlevel services
+pulseaudio --start
+dunst &
+
+# finally, run the wm of choice
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session spectrwm
+

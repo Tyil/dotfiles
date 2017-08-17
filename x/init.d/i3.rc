@@ -1,0 +1,11 @@
+# start some required stuff
+pulseaudio --start
+
+# compositing manager
+compton -bcfzC -D4 --backend glx --vsync opengl-swc
+
+dunst &
+nm-applet &
+
+# finally, run the wm of choice
+exec i3

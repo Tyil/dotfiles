@@ -1,0 +1,40 @@
+# start dbus if necessary
+if [ -f "/etc/X11/xinit/xinitrc.d/80-dbus" ];
+then
+	source /etc/X11/xinit/xinitrc.d/80-dbus
+fi
+
+# start polkit auth agent
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+export GNOME_KEYRING_PID
+export GNOME_KEYRING_SOCKET
+export SSH_AUTH_SOCK
+
+# extend the fontpath
+xset +fp ~/.fonts/Terminus/BDF
+#xset +fp /usr/share/fonts/local
+
+# set the default mousepointer
+xsetroot -cursor_name left_ptr
+
+# load the .Xresources
+xrdb -merge ~/.Xresources
+
+# xkbmap options
+setxkbmap \
+	-layout us \
+	-variant tvorak \
+	-option compose:menu \
+	-option caps:escape
+
+# add altgr
+xmodmap -e "keycode 108 = ISO_Level3_Shift"
+
+# set a wallpaper
+chwp &
+
+# start background processes
+dunst &
+sxhkd &
+#urxvtd &
+

@@ -1,0 +1,5 @@
+! Clear the capslock of any functionality
+clear lock
+
+! Bind Escape to the capslock
+keycode 0x42 = Escape

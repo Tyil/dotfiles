@@ -1,0 +1,9 @@
+# start some required stuff
+pulseaudio --start
+
+# start the taskbar
+#tint2 &
+
+# finally, run the wm of choice
+#exec ck-launch-session dbus-launch --sh-syntax --exit-with-session openbox-session
+exec openbox-session

@@ -1,0 +1,9 @@
+# start some required stuff
+pulseaudio --start
+
+# finally, run the wm of choice
+#exec ck-launch-session dbus-launch --sh-syntax --exit-with-session openbox-session
+#exec enlightenment_start
+#exec e16-session
+exec dbus-launch --exit-with-session enlightenment_start
+

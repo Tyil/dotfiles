@@ -1,0 +1,46 @@
+! xft font settings
+Xft.antialias      : 1
+Xft.autohint       : 1
+Xft.hinting        : 1
+Xft.hintstyle      : hintslight
+Xft.rgba           : rgb
+
+! set 256 colors
+UXTerm*termName : xterm-256color
+
+! set urxvt generic settings
+URxvt.font : xft:Liberation Mono:pixelsize=12
+URxvt.scrollBar : false
+! urxvt colors
+URxvt*background  : [90]#000000
+URxvt*foreground  : #eeeeee
+URxvt*cursorColor : #eeeeee
+URxvt*color0      : #393939
+URxvt*color1      : #ca674a
+URxvt*color2      : #96a967
+URxvt*color3      : #d3a94a
+URxvt*color4      : #5778c1
+URxvt*color5      : #9c35ac
+URxvt*color6      : #6eb5f3
+URxvt*color7      : #a9a9a9
+URxvt*color8      : #535551
+URxvt*color9      : #ea2828
+URxvt*color10     : #87dd32
+URxvt*color11     : #f7e44d
+URxvt*color12     : #6f9bca
+URxvt*color13     : #a97ca4
+URxvt*color14     : #32dddd
+URxvt*color15     : #e9e9e7
+
+! urxvt fake transparency
+URxvt.transparent : true
+URxvt.shading     : 8
+
+! padding
+URxvt.internalBorder: 6
+
+! urxvt clickable URLs
+URxvt.perl-ext-common : default,matcher
+URxvt.url-launcher    : /usr/bin/palemoon
+URxvt.matcher.button  : 1
+

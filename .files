@@ -1,2 +1,4 @@
-shell/rc/zshrc  ${HOME}/.zshrc
 npm/npmrc       ${HOME}/.npmrc
+shell/rc/zshrc  ${HOME}/.zshrc
+x/modmap        ${HOME}/.Xmodmap
+x/resources     ${HOME}/.Xresources

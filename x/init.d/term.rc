@@ -1,0 +1,11 @@
+# start some required stuff
+xscreensaver -no-splash &
+
+# glorious wallpaper
+chwp 300 &
+
+# start a terminal emulator
+urxvt &
+
+# finally, run the wm of choice
+exec openbox

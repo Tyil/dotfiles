@@ -1,0 +1,6 @@
+# start some userlevel services
+pulseaudio --start
+nm-applet &
+
+# finally, run the wm of choice
+exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome
