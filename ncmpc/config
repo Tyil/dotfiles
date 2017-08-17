@@ -1,0 +1,18 @@
+enable-colors   = yes
+visible-bitrate = yes
+
+color background        = none
+color title             = 215
+color title-bold        = 215
+color line              = 244
+color line-flags        = 107
+color list              = none
+color list-bold         = 110,bold
+color browser-directory = none
+color browser-playlist  = 183
+color progressbar       = 244
+color status-state      = 107
+color status-song       = 110
+color status-time       = 107
+color alert             = 167
+

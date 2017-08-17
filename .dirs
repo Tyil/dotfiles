@@ -1,5 +1,6 @@
 emacs          ~/.emacs.d
 git            ~/.config/git
+ncmpc          ~/.ncmpc
 shell/config   ~/.config/shell
 shell/scripts  ~/.scripts
 sxhkd          ~/.config/sxhkd
