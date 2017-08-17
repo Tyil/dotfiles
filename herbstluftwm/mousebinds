@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+hc() {
+    herbstclient "$@"
+}
+
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 resize
+hc mousebind $Mod-Button3 zoom
+

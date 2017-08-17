@@ -1,0 +1,40 @@
+#! /usr/bin/env sh
+
+hc()
+{
+	herbstclient "$@"
+}
+
+hc unrule -F
+
+# rules for tags
+hc floating games on
+
+# focus new clients by default
+hc rule focus=on
+
+# place windows on specific tags
+hc rule class="Chromium-browser-chromium" tag="web"
+hc rule class="Pale moon" tag="web"
+hc rule class="Steam" tag="games"
+hc rule class="Steam" title~"(.* \- Chat)" tag="social"
+hc rule class="Thunderbird" tag="email"
+hc rule class="VirtualBox" tag="vms"
+hc rule class="dota2" tag="games" pseudotile="on"
+hc rule class="jetbrains-idea" tag="work"
+hc rule class="jetbrains-studio" tag="work"
+hc rule class="mpv" tag="media" fullscreen="on"
+hc rule class="mumble" tag="social"
+hc rule class="qtox" tag="social"
+hc rule class="qutebrowser" tag="web"
+hc rule class="virt-manager" tag="vms"
+
+#hc rule class=XTerm tag=3 # move all xterms to tag 3
+#hc rule focus=off # normally do not focus new clients
+# give focus to most common terminals
+#hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' pseudotile=on
+hc rule class="gcr-prompter" pseudotile=on
+
