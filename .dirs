@@ -5,3 +5,4 @@ shell/scripts  ~/.scripts
 sxhkd          ~/.config/sxhkd
 tmux           ~/.config/tmux
 vim            ~/.vim
+xmonad         ~/.xmonad
