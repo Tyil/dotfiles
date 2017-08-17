@@ -10,7 +10,7 @@
 (setq package-archive-enable-alist '(("melpa" deft magit)))
 
 ; Set custom look & feel
-(load-theme 'wombat t)
+(load-theme 'monokai t)
 (global-linum-mode t)
 (global-hl-line-mode t)
 (load "~/.emacs.d/keys.el")
@@ -54,7 +54,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (evil-vimish-fold vimish-fold centered-cursor-mode jbeans-theme smartparens yasnippet yasnippet-snippets rainbow-delimiters web-mode evil helm org-evil php-mode programmer-dvorak project)))
+    (monokai-theme centered-cursor-mode smartparens yasnippet yasnippet-snippets rainbow-delimiters web-mode evil helm org-evil php-mode)))
  '(show-trailing-whitespace t)
  '(tool-bar-mode nil))
 (custom-set-faces

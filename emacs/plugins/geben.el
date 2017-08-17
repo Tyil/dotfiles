@@ -1,4 +1,4 @@
 (use-package geben)
 
-;(global-set-key "\C-gC-s" 'geben)
-;(global-set-key "\C-gC-t" 'geben-end)
+(global-set-key "\C-cgs" 'geben)
+(global-set-key "\C-cgq" 'geben-end)
