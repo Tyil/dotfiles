@@ -49,11 +49,11 @@ install_file()
 		mkdir -p "${file_target_dir}"
 	fi
 
-	# If the target does not exist or is outdated, copy over the base
-	if [ ! -e "${file_target}" ] || base_newer "${file_base}" "${file_target}"
+	# If the target does not exist, symlink it
+	if [ ! -e "${file_target}" ]
 	then
 		echo "> ${file_target}"
-		cp "${file_base}" "${file_target}"
+		ln -s "${file_base}" "${file_target}"
 
 		return 0
 	fi
@@ -92,19 +92,6 @@ install_dir()
 
 	# shellcheck disable=SC2164
 	cd "${dir_cwd}"
-}
-
-base_newer()
-{
-	base_mod="$(perl -IFile::Stat -e 'print((stat("'"$1"'"))[9])')"
-	target_mod="$(perl -IFile::Stat -e 'print((stat("'"$2"'"))[9])')"
-
-	if [ "${target_mod}" -lt "${base_mod}" ]
-	then
-		return 0
-	fi
-
-	return 1
 }
 
 main()
