@@ -24,6 +24,15 @@ unsetopt beep nomatch notify
 # vi mode
 [ $DEBUG_DOTFILES ] && echo "  Setting vi-mode"
 bindkey -v
+
+# Extend vi mode with some happy good vim stuff
+function zle-move-to-buffer-beginning {
+	CURSOR=0
+}
+
+zle -N zle-move-to-buffer-beginning
+
+# Bind some emacs-style bindings in insert mode
 bindkey -M viins '^a' beginning-of-line
 bindkey -M viins '^b' backward-char
 bindkey -M viins '^e' end-of-line
@@ -33,6 +42,9 @@ bindkey -M viins '^n' history-search-forward
 bindkey -M viins '^p' history-search-backward
 bindkey -M viins '^u' kill-region
 bindkey -M viins '^y' yank
+
+# Bind the vim bindings
+bindkey -M vicmd "gg" zle-move-to-buffer-beginning
 
 # configure components {{{
 [ $DEBUG_DOTFILES ] && echo "  Setting autocompletions"
