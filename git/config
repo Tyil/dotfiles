@@ -29,8 +29,11 @@
 [difftool]
 	prompt = false
 
+[pull]
+	default = current
+
 [push]
-	default = simple
+	default = current
 
 [user]
 	email      = p.spek@tyil.nl
