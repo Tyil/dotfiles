@@ -121,4 +121,3 @@ PROMPT='%(!.%F{1}.%F{2})%n%F{8}@${vi_mode}%M%F{8}:%F{12}%~%k${PGIT}${CURSOR_STYL
 
 # Apply bundles
 source "${XDG_CONFIG_DIR:-"${HOME}/.config"}/shell/bundles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
