@@ -131,5 +131,6 @@ fi
 # show motd
 if [ -f "${HOME}/.config/shell/motd" ]; then
 	[ "${DEBUG_DOTFILES}" ] && echo "Reading motd"
-	cat "${HOME}/.config/shell/motd"
+	# shellcheck disable=SC1090
+	. "${HOME}/.config/shell/motd"
 fi
