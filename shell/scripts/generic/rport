@@ -1,0 +1,17 @@
+#! /usr/bin/env sh
+
+## @file
+## @author Patrick Spek <p.spek@tyil.work>
+## @copyright GPLv3
+##
+## Generate a random port number.
+
+readonly LOWER=1025
+readonly UPPER=65534
+
+main()
+{
+	shuf -i "${LOWER}-${UPPER}" -n 1
+}
+
+main "$@"
