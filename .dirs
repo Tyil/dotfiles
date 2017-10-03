@@ -2,6 +2,7 @@ awesome        ~/.config/awesome
 emacs          ~/.emacs.d
 git            ~/.config/git
 herbstluftwm   ~/.config/herbstluftwm
+mpd            ~/.config/mpd
 ncmpc          ~/.ncmpc
 ncmpcpp        ~/.ncmpcpp
 shell/config   ~/.config/shell
