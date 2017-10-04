@@ -32,9 +32,8 @@ alias e="vim"
 alias g="grep --color=always -i"
 alias links-g="links -g" # Termite cant deal with it if its an argument
 alias muttman="~/projects/rb/muttman/src/muttman"
-alias p="pgrep -fil"
+alias p="ps -A -o pid,comm | grep -i"
 alias rcopy="rsync --append --info=ALL,PROGRESS -aru"
 alias slideshow="feh -zsZ.D 5"
 alias wifiman="wicd-curses"
 # }}}
-
