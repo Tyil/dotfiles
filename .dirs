@@ -1,4 +1,5 @@
 awesome        ~/.config/awesome
+dunst          ~/.config/dunst
 emacs          ~/.emacs.d
 git            ~/.config/git
 herbstluftwm   ~/.config/herbstluftwm

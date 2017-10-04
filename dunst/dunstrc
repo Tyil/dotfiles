@@ -1,0 +1,64 @@
+[global]
+	font = Liberation Mono 8
+	allow_markup = yes
+	format = "<span font_size="large"><b>%s</b></span>\n%b"
+	sort = yes
+	indicate_hidden = yes
+	alignment = left
+	bounce_freq = 0
+	show_age_threshold = 60
+	word_wrap = yes
+	ignore_newline = no
+	geometry = "300x5-10+30"
+	shrink = no
+	transparency = 20
+	idle_threshold = 120
+	monitor = 0
+	follow = mouse
+	sticky_history = yes
+	history_length = 20
+	show_indicators = yes
+	line_height = 0
+	separator_height = 2
+	padding = 8
+	horizontal_padding = 8
+	separator_color = frame
+	startup_notification = false
+	dmenu = /usr/bin/dmenu -p dunst:
+	browser = /usr/bin/firefox -new-tab
+	icon_position = right
+	icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+[frame]
+	width = 2
+	color = "#aaaaaa"
+
+[shortcuts]
+	close = ctrl+space
+	close_all = ctrl+shift+space
+	history = ctrl+grave
+	context = ctrl+shift+period
+
+[urgency_low]
+	background = "#333333"
+	foreground = "#ffffff"
+	timeout = 10
+
+[urgency_normal]
+	background = "#000000"
+	foreground = "#ffffff"
+	timeout = 10
+
+[urgency_critical]
+	background = "#660000"
+	foreground = "#ffffff"
+	timeout = 0
+
+
+# Override notifications from certain sources
+
+[mpd]
+	appname = MPD
+	urgency = normal
+
+# vim: ft=cfg
