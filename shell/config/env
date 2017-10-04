@@ -19,7 +19,7 @@ export EDITOR=vim
 export WWW_HOME=https://duckduckgo.com/
 
 # set history
-export HISTFILE=~/.local/var/shell/histfile
+export HISTFILE=~/.local/var/shell/histfile && mkdir -p -- "$(dirname "${HISTFILE}")"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
