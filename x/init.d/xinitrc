@@ -21,11 +21,11 @@ xsetroot -cursor_name left_ptr
 xrdb -merge ~/.Xresources
 
 # xkbmap options
-setxkbmap \
-	-layout us \
-	-variant tvorak \
-	-option compose:menu \
-	-option caps:escape
+#setxkbmap \
+#	-layout us \
+#	-variant tvorak \
+#	-option compose:menu \
+#	-option caps:escape
 
 # add altgr
 xmodmap -e "keycode 108 = ISO_Level3_Shift"
@@ -34,7 +34,4 @@ xmodmap -e "keycode 108 = ISO_Level3_Shift"
 chwp &
 
 # start background processes
-dunst &
 sxhkd &
-#urxvtd &
-
