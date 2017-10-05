@@ -14,7 +14,7 @@ main()
 
 	plain=$(pass show "${file}")
 
-	notify-send "ipass" "${file}"
+	notify-send -i "dialog-password" "ipass" "${file}"
 	xdotool type "${plain}"
 }
 
