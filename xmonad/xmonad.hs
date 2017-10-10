@@ -52,6 +52,7 @@ myManageHook = composeAll
              , className =? "mumble" --> doShift "social"
              , className =? "qutebrowser" --> doShift "web"
              , className =? "virt-manager" --> doShift "vms"
+             , className =? "QupZilla" --> doShift "web"
              , appName   =? "urxvt_ncmpc" --> doShift "entertainment"
              ]
 
