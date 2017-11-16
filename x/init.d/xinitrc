@@ -21,11 +21,23 @@ xsetroot -cursor_name left_ptr
 xrdb -merge ~/.Xresources
 
 # xkbmap options
-#setxkbmap \
-#	-layout us \
-#	-variant tvorak \
-#	-option compose:menu \
-#	-option caps:escape
+setxkbmap \
+	-layout us \
+	-variant dvp \
+	-option compose:menu \
+	-option caps:escape
+
+# Map numbers to sanity
+xmodmap -e "keycode  11 mod2 = bracketleft  1"
+xmodmap -e "keycode  12 mod2 = braceleft    2"
+xmodmap -e "keycode  13 mod2 = braceright   3"
+xmodmap -e "keycode  14 mod2 = parenleft    4"
+xmodmap -e "keycode  15 mod2 = equal        5"
+xmodmap -e "keycode  16 mod2 = asterisk     6"
+xmodmap -e "keycode  17 mod2 = parenright   7"
+xmodmap -e "keycode  18 mod2 = plus         8"
+xmodmap -e "keycode  19 mod2 = bracketright 9"
+xmodmap -e "keycode  20 mod2 = exclam       0"
 
 # add altgr
 xmodmap -e "keycode 108 = ISO_Level3_Shift"
@@ -34,4 +46,6 @@ xmodmap -e "keycode 108 = ISO_Level3_Shift"
 chwp &
 
 # start background processes
+compton &
+dunst &
 sxhkd &
