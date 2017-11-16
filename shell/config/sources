@@ -35,6 +35,13 @@ FPATH="${HOME}/.config/shell/completion ${FPATH}"
 # shellcheck disable=SC1090
 . "${HOME}/.config/shell/env"
 
+if [ -f "${HOME}/.local/etc/shell/env" ]
+then
+	[ "${DEBUG_DOTFILES}" ] && echo "Sourcing ~/.local/etc/shell/env"
+	# shellcheck disable=SC1090
+	. "${HOME}/.local/etc/shell/env"
+fi
+
 # extends the path with OS specific scripts
 if [ -d "${HOME}/.scripts/$(lower "$(uname)")" ]; then
 	[ "${DEBUG_DOTFILES}" ] && echo "Extending PATH with ~/.scripts/$(lower "$(uname)")"

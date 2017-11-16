@@ -9,9 +9,6 @@ export TERM=screen-256color
 export LANG="en_US.UTF-8"
 export LESSCHARSET="utf-8"
 
-# enable proxy for this terminal
-$(proxy-toggle on)
-
 # Set favourite applications
 export EDITOR=vim
 
@@ -104,4 +101,3 @@ clear                  #for background artifacting
 
 # set the cursor
 #export CURSOR_STYLE="\e[?6;14;9;c"
-
