@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-WALLDIR=~/pictures/wallpapers/1920x1080
+WALLDIR=~/media/pictures/wallpapers/1920x1080
 
 if [ -z "$1" ]
 then
