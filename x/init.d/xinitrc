@@ -46,6 +46,7 @@ xmodmap -e "keycode 108 = ISO_Level3_Shift"
 chwp &
 
 # start background processes
+redshift -l 51.50:4.59 &
 compton &
 dunst &
 sxhkd &
