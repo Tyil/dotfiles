@@ -107,16 +107,16 @@ zle -N zle-keymap-select
 PROMPT='%(!.%F{1}.%F{2})%n%F{8}@${vi_mode}%M%F{8}:%F{12}%~%k${PGIT}${CURSOR_STYLE} '
 
 # load our keychain if possible {{{
-#[ $DEBUG_DOTFILES ] && echo "  Checking for keychain"
-#if type keychain > /dev/null 2>&1 ; then
-#	[ $DEBUG_DOTFILES ] && echo "  Loading keychain"
-#	keychain -q /home/$USERNAME/.ssh/id_rsa
-#	source /home/$USERNAME/.keychain/$HOST-sh 2> /dev/null
-#else
-#	# the least we can do is to use ssh-agent
-#	# disabled untill I learn to setup this stuff for FreeBSD
-#	#eval `ssh-agent` > /dev/null
-#fi
+[ $DEBUG_DOTFILES ] && echo "  Checking for keychain"
+if type keychain > /dev/null 2>&1 ; then
+	[ $DEBUG_DOTFILES ] && echo "  Loading keychain"
+	keychain -q /home/$USERNAME/.ssh/id_rsa
+	source /home/$USERNAME/.keychain/$HOST-sh 2> /dev/null
+else
+	# the least we can do is to use ssh-agent
+	# disabled untill I learn to setup this stuff for FreeBSD
+	#eval `ssh-agent` > /dev/null
+fi
 # }}}
 
 # Apply bundles
