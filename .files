@@ -1,3 +1,4 @@
+mutt/rc         ${HOME}/.muttrc
 npm/npmrc       ${HOME}/.npmrc
 shell/rc/zshrc  ${HOME}/.zshrc
 x/modmap        ${HOME}/.Xmodmap
