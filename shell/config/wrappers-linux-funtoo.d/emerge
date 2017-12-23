@@ -3,7 +3,7 @@
 notify-log /var/log/emerge.log &
 pid=$!
 
-sudo emerge -a $@
+time sudo emerge -a $@
 
 kill ${pid}
 
