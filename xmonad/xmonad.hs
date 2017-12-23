@@ -59,14 +59,14 @@ myManageHook = composeAll
 myWorkspaces = ["work", "social", "web", "email", "entertainment", "vms", "games", "eight", "nine"]
 myWorkspaceKeys = -- tvorak
     [
-        xK_asterisk,
         xK_bracketleft,
         xK_braceleft,
+        xK_braceright,
         xK_parenleft,
         xK_equal,
-        xK_plus,
+        xK_asterisk,
         xK_parenright,
-        xK_braceright,
+        xK_plus,
         xK_bracketright
     ]
 
