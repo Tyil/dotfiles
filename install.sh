@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-readonly DOTDIR="${HOME}/dotfiles"
+BASEDIR=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P)
 
 expand() {
 	# shellcheck disable=SC2016
@@ -11,27 +11,9 @@ expand() {
 	eval "$command"
 }
 
-get_dotdir()
-{
-	cwd=$(pwd)
-
-	if [ ! -d "${DOTDIR}" ]
-	then
-		git clone https://github.com/tyil/dotfiles.git "${DOTDIR}" > /dev/null 2>&1
-
-		return
-	fi
-
-	# shellcheck disable=SC2164
-	cd "${DOTDIR}"
-	git pull > /dev/null 2>&1
-	# shellcheck disable=SC2164
-	cd "${cwd}"
-}
-
 install_file()
 {
-	file_base="$(expand "${DOTDIR}/$1")"
+	file_base="$(expand "${BASEDIR}/$1")"
 	file_target="$(expand "$2")"
 	file_target_dir=$(dirname "${file_target}")
 
@@ -65,7 +47,7 @@ install_file()
 
 install_dir()
 {
-	dir_base="${DOTDIR}/$1"
+	dir_base="${BASEDIR}/$1"
 	dir_cwd=$(pwd)
 
 	# Ensure the base exists
@@ -96,15 +78,6 @@ install_dir()
 
 main()
 {
-	# Ensure the dotdir is available and up to date
-	get_dotdir "${DOTDIR}"
-
-	if [ ! -d "${DOTDIR}" ]
-	then
-		echo "Missing DOTDIR!" >&2
-		exit 1
-	fi
-
 	# Install all single file configs
 	while read -r line
 	do
@@ -117,10 +90,10 @@ main()
 		dest=$(echo "$line" | awk '{ print $2 }')
 
 		install_file "${source}" "${dest}"
-	done < "${DOTDIR}/.files"
+	done < "${BASEDIR}/.files"
 
 	# Install all directories
-	[ -e "${DOTDIR}/.dirs" ] && \
+	[ -e "${BASEDIR}/.dirs" ] && \
 	while read -r line
 	do
 		if [ "$line" = "" ]
@@ -132,10 +105,10 @@ main()
 		dest=$(echo "$line" | awk '{ print $2 }')
 
 		install_dir "${source}" "${dest}"
-	done < "${DOTDIR}/.dirs"
+	done < "${BASEDIR}/.dirs"
 
 	# Run additional scripts
-	[ -e "${DOTDIR}/.scripts" ] && \
+	[ -e "${BASEDIR}/.scripts" ] && \
 	while read -r line
 	do
 		if [ "$line" = "" ]
@@ -143,11 +116,11 @@ main()
 			continue
 		fi
 
-		script="${DOTDIR}/$(expand "${line}")"
+		script="${BASEDIR}/$(expand "${line}")"
 
 		echo "x $script"
 		$script
-	done < "${DOTDIR}/.scripts"
+	done < "${BASEDIR}/.scripts"
 
 	exit 0
 }
