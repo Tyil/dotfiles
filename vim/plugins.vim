@@ -16,3 +16,6 @@ call camelcasemotion#CreateMotionMappings('<silent>')
 
 " Enable unicode abbreviations for prettier Perl 6 code
 let perl6_unicode_abbrevs = 1
+
+" UltiSnips
+let g:snips_author = "Patrick Spek <p.spek@tyil.work>"
