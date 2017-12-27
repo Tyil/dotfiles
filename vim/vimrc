@@ -23,6 +23,10 @@ set sm
 set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
 set wmnu
+
+" Default indent rules
+set noet
+set sw=3
 set ts=3
 
 " add hotkeys
