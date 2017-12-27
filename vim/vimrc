@@ -30,6 +30,10 @@ set noet
 set sw=3
 set ts=3
 
+" Updated colors
+hi CursorColumn ctermbg=none cterm=underline
+hi ColorColumn  ctermbg=red
+
 " add hotkeys
 nmap <F6> :make<CR>
 
@@ -52,5 +56,4 @@ if has("persistent_undo")
 endif
 
 ru leaderkeys.vim
-ru colo.vim
 ru plugins.vim
