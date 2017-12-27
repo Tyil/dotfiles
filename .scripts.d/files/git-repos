@@ -15,3 +15,9 @@ https://github.com/nanotech/jellybeans.vim                ~/.vim/bundle/theme-je
 https://github.com/tpope/vim-fugitive                     ~/.vim/bundle/feature-fugitive
 https://github.com/vim-perl/vim-perl6.git                 ~/.vim/bundle/syntax-perl6
 https://github.com/vim-syntastic/syntastic.git            ~/.vim/bundle/feature-syntastic
+https://github.com/StanAngeloff/php.vim                   ~/.vim/bundle/syntax-php
+https://github.com/majutsushi/tagbar                      ~/.vim/bundle/feature-tagbar
+https://github.com/sirver/UltiSnips                       ~/.vim/bundle/feature-snippets
+https://github.com/honza/vim-snippets                     ~/.vim/bundle/misc-snippets
+https://github.com/vim-scripts/Align.git                  ~/.vim/bundle/feature-align
+https://github.com/tomasr/molokai                         ~/.vim/bundle/theme-molokai
