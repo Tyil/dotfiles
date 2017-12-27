@@ -23,6 +23,7 @@ set sm
 set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
 set wmnu
+set ts=3
 
 " add hotkeys
 nmap <F6> :make<CR>
