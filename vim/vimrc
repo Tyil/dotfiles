@@ -5,12 +5,10 @@ execute pathogen#helptags()
 " enable fancy features
 filetype plugin indent on
 syntax enable
-colo jellybeans
 
 " vim settings
 set ai
 set cc=79
-set cuc
 set cul
 set fdm=syntax
 set lcs=tab:>-,trail:~
@@ -48,4 +46,5 @@ if has("persistent_undo")
 endif
 
 ru leaderkeys.vim
+ru colo.vim
 ru plugins.vim
