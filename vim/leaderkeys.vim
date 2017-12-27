@@ -20,3 +20,5 @@ nmap <Leader>cc :w<CR>:make<CR>
 nmap <Leader>bb :CtrlPBuffer<CR>
 nmap <Leader>fp :CtrlP<CR>
 
+" PDV
+nnoremap <Leader> dg :call pdv#DocumentWithSnip()<CR>

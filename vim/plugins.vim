@@ -19,3 +19,6 @@ let perl6_unicode_abbrevs = 1
 
 " UltiSnips
 let g:snips_author = "Patrick Spek <p.spek@tyil.work>"
+
+" PDV
+let g:pdv_template_dir = $HOME ."/.vim/bundle/feature-phpdoc/templates_snip"

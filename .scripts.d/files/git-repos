@@ -21,3 +21,5 @@ https://github.com/sirver/UltiSnips                       ~/.vim/bundle/feature-
 https://github.com/honza/vim-snippets                     ~/.vim/bundle/misc-snippets
 https://github.com/vim-scripts/Align.git                  ~/.vim/bundle/feature-align
 https://github.com/tomasr/molokai                         ~/.vim/bundle/theme-molokai
+https://github.com/tobyS/vmustache                        ~/.vim/bundle/misc-vmustache
+https://github.com/tobyS/pdv                              ~/.vim/bundle/feature-phpdoc
