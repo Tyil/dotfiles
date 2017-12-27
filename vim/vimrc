@@ -9,6 +9,7 @@ syntax enable
 " vim settings
 set ai
 set cc=79
+set cuc
 set cul
 set fdm=syntax
 set lcs=tab:>-,trail:~
