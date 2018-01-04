@@ -13,6 +13,7 @@ set bg=dark
 " vim settings
 set ai
 set cc=79
+set cuc
 set cul
 set fdm=syntax
 set lcs=tab:>-,trail:~
@@ -30,8 +31,12 @@ set wmnu
 
 " Default indent settings
 set noet
-set ts=3
 set sw=3
+set ts=3
+
+" Updated colors
+hi CursorColumn ctermbg=none cterm=underline
+hi ColorColumn  ctermbg=red
 
 " add hotkeys
 nmap <F6> :make<CR>
