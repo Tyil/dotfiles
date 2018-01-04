@@ -6,10 +6,6 @@ execute pathogen#helptags()
 filetype plugin indent on
 syntax enable
 
-" Colorscheme
-colo default
-set bg=dark
-
 " vim settings
 set ai
 set cc=79
@@ -29,19 +25,10 @@ set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
 set wmnu
 
-" Default indent settings
-set noet
-set sw=3
-set ts=3
-
-" Updated colors
-hi CursorColumn ctermbg=none cterm=underline
-hi ColorColumn  ctermbg=red
-
 " add hotkeys
 nmap <F6> :make<CR>
 
-" set normal numbering in insert mode
+" set normal numbering in insert
 au InsertEnter * :set nornu
 au InsertLeave * :set rnu
 
@@ -59,5 +46,7 @@ if has("persistent_undo")
 	set undofile
 endif
 
+ru theme.vim
 ru leaderkeys.vim
 ru plugins.vim
+ru indent.vim
