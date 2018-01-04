@@ -5,7 +5,10 @@ execute pathogen#helptags()
 " enable fancy features
 filetype plugin indent on
 syntax enable
+
+" Colorscheme
 colo default
+set bg=dark
 
 " vim settings
 set ai
@@ -24,7 +27,11 @@ set sm
 set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
 set wmnu
+
+" Default indent settings
+set noet
 set ts=3
+set sw=3
 
 " add hotkeys
 nmap <F6> :make<CR>
