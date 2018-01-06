@@ -22,7 +22,7 @@ set scrolloff=666
 set si
 set sm
 set ut=500
-set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg
+set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,.precomp
 set wmnu
 
 " add hotkeys
