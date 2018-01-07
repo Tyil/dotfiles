@@ -6,6 +6,12 @@ execute pathogen#helptags()
 filetype plugin indent on
 syntax enable
 
+let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+
+for f in split(globpath(s:path . "/functions", '*.vim'), '\n')
+	exe "so " . f
+endfor
+
 " vim settings
 set ai
 set cc=79
@@ -24,6 +30,8 @@ set sm
 set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,.precomp
 set wmnu
+
+call SetIndent(3)
 
 " add hotkeys
 nmap <F6> :make<CR>
@@ -49,4 +57,3 @@ endif
 ru theme.vim
 ru leaderkeys.vim
 ru plugins.vim
-ru indent.vim
