@@ -1,14 +1,37 @@
 #! /usr/bin/env sh
 
 BASEDIR=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P)
+DSTACK=$(mktemp)
 
-expand() {
+expand()
+{
 	# shellcheck disable=SC2016
 	string=$(echo "$1" | sed 's|^~/|${HOME}/|')
 	delimiter="__apply_shell_expansion_delimiter__"
 	command="cat << $(printf "%s\n%s\n%s" "$delimiter" "$string" "$delimiter")"
 
 	eval "$command"
+}
+
+popdir()
+{
+	target=$(tail -n 1 "${DSTACK}")
+	tmp_stack=$(mktemp)
+
+	head -n -1 "${DSTACK}" >> "${tmp_stack}"
+
+	cd "${target}" || return 1
+
+	mv "${tmp_stack}" "${DSTACK}"
+}
+
+pushdir()
+{
+	cwd=$(pwd)
+
+	cd "$1" || return 1
+
+	echo "${cwd}" >> "${DSTACK}"
 }
 
 install_file()
@@ -20,7 +43,7 @@ install_file()
 	# Ensure the base exists
 	if [ ! -f "${file_base}" ]
 	then
-		echo "${file_base} does not exist" >&2
+		echo "${file_base} does not exist (file)" >&2
 		return 2
 	fi
 
@@ -48,17 +71,16 @@ install_file()
 install_dir()
 {
 	dir_base="${BASEDIR}/$1"
-	dir_cwd=$(pwd)
 
 	# Ensure the base exists
 	if [ ! -d "${dir_base}" ]
 	then
-		echo "${dir_base} does not exist" >&2
+		echo "${dir_base} does not exist (dir)" >&2
 		return 2
 	fi
 
 	# shellcheck disable=SC2164
-	cd "${dir_base}"
+	pushdir "${dir_base}"
 
 	for dir_i in *
 	do
@@ -73,7 +95,7 @@ install_dir()
 	done
 
 	# shellcheck disable=SC2164
-	cd "${dir_cwd}"
+	popdir
 }
 
 main()
