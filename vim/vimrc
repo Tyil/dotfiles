@@ -6,9 +6,9 @@ execute pathogen#helptags()
 filetype plugin indent on
 syntax enable
 
-let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let g:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-for f in split(globpath(s:path . "/functions", '*.vim'), '\n')
+for f in split(globpath(g:path . "/functions", '*.vim'), '\n')
 	exe "so " . f
 endfor
 
@@ -30,6 +30,7 @@ set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,.precomp
 set wmnu
 
+call PickTheme()
 call SetCharLimit(79)
 call SetIndent(3)
 
@@ -54,6 +55,5 @@ if has("persistent_undo")
 	set undofile
 endif
 
-ru theme.vim
 ru leaderkeys.vim
 ru plugins.vim
