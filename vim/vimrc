@@ -14,7 +14,6 @@ endfor
 
 " vim settings
 set ai
-set cc=79
 set cuc
 set cul
 set fdm=syntax
@@ -31,6 +30,7 @@ set ut=500
 set wig=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg,.precomp
 set wmnu
 
+call SetCharLimit(79)
 call SetIndent(3)
 
 " add hotkeys
