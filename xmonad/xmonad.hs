@@ -41,7 +41,7 @@ myLayoutHook = onWorkspace "work" myLayoutGaps $
                (myLayoutCircle ||| myLayoutFullscreen)
 
 myManageHook = composeAll
-             , className =? "Chromium-browser-chromium" --> doShift "web"
+             [ className =? "Chromium-browser-chromium" --> doShift "web"
              , className =? "Firefox" --> doShift "web"
              , className =? "QupZilla" --> doShift "web"
              , className =? "Steam" --> doShift "games"
@@ -53,7 +53,7 @@ myManageHook = composeAll
              , className =? "mumble" --> doShift "social"
              , className =? "qutebrowser" --> doShift "web"
              , className =? "virt-manager" --> doShift "vms"
-             [ className =? "Pale moon" --> doShift "web"
+             , className =? "Pale moon" --> doShift "web"
              ]
 
 myWorkspaces = ["work", "social", "web", "email", "entertainment", "vms", "games", "eight", "nine"]
