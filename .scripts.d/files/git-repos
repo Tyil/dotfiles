@@ -23,3 +23,4 @@ https://github.com/aklt/plantuml-syntax.git               ~/.vim/bundle/syntax-p
 https://github.com/leafgarland/typescript-vim.git         ~/.vim/bundle/syntax-typescript
 https://github.com/nanotech/jellybeans.vim                ~/.vim/bundle/theme-jellybeans
 https://github.com/tomasr/molokai                         ~/.vim/bundle/theme-molokai
+https://github.com/felipesousa/rupza.git                  ~/.vim/bundle/theme-rupza
