@@ -10,10 +10,15 @@ unset PATH
 
 [ "${DEBUG_DOTFILES}" ] && echo "Setting PATH"
 PATH="${HOME}/.local/bin"
+
+# Perl 6
+PATH="${PATH}:${HOME}/.local/share/perl6/bin"
+PATH="${PATH}:${HOME}/.local/share/perl6/site/bin"
+PATH="${PATH}:${HOME}/.perl6/bin"
+
 PATH="${PATH}:${HOME}/.scripts/generic"
 PATH="${PATH}:${HOME}/.config/shell/wrappers.d"
 PATH="${PATH}:${HOME}/.cabal/bin"
-PATH="${PATH}:${HOME}/.perl6/bin"
 PATH="${PATH}:/bin"
 PATH="${PATH}:/sbin"
 PATH="${PATH}:/usr/bin"
