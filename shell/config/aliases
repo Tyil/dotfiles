@@ -37,4 +37,6 @@ alias p="ps -A -o pid,comm | grep -i"
 alias rcopy="rsync --append-verify --info=ALL,PROGRESS -ar"
 alias slideshow="feh -zsZ.D 5"
 alias wifiman="wicd-curses"
+alias parescan="pacmd unload-module module-udev-detect && pacmd load-module
+module-udev-detect"
 # }}}
