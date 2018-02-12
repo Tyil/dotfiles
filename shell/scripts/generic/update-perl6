@@ -1,0 +1,35 @@
+#! /usr/bin/env sh
+
+readonly WORKDIR="$HOME/.local/src/perl6"
+
+build()
+{
+	perl Configure.pl --gen-moar --gen-nqp --backends=moar --prefix=$HOME/.local
+	make
+	make install
+}
+
+cleanup()
+{
+	cd || exit
+	rm -rf "$WORKDIR"
+}
+
+prepare()
+{
+	git clone https://github.com/rakudo/rakudo/ "$WORKDIR"
+	cd "$WORKDIR" || exit
+
+	git checkout "$1"
+	git pull
+}
+
+main()
+{
+	prepare "${1:-master}"
+	build
+	perl6 --version
+	cleanup
+}
+
+main "$@"

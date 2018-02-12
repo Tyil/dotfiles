@@ -1,0 +1,29 @@
+#! /usr/bin/env sh
+
+readonly WORKDIR="$HOME/.local/src/zef"
+
+build()
+{
+	perl6 -I. bin/zef install .
+}
+
+cleanup()
+{
+	cd || exit
+	rm -rf "$WORKDIR"
+}
+
+prepare()
+{
+	git clone https://github.com/ugexe/zef "$WORKDIR"
+	cd "$WORKDIR" || exit
+}
+
+main()
+{
+	prepare
+	build
+	cleanup
+}
+
+main "$@"
