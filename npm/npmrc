@@ -1,1 +1,8 @@
-progress=false
+progress = false    ; Improve npm performance by 100%
+prefix   = ~/.local ; Use a sane prefix since npm devs don't know how to deal with root privs
+
+; init options
+init-author-email = p.spek@tyil.work
+init-author-name  = Patrick Spek
+init-license      = GPL-3.0
+init-version      = 0.0.0
