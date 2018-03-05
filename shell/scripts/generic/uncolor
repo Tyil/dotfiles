@@ -1,22 +1,20 @@
 #! /usr/bin/env sh
 
+readonly EXPRESSION='s/\x1b\[[0-9;]*m//g'
+
 main()
 {
-	tmp=$(mktemp)
-
 	if [ "${1:--}" = "-" ]
 	then
 		while read line
 		do
-			printf "%s" "$line" >> "$tmp"
+			printf "%s\n" "$line" | sed "$EXPRESSION"
 		done < /dev/stdin
 
-		file=$tmp
-	else
-		file=$1
+		return 0
 	fi
 
-	sed 's/\x1b\[[0-9;]*m//g' "$file"
+	sed "$EXPRESSION" "$1"
 }
 
 main "$@"
