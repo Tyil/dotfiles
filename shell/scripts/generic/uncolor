@@ -1,0 +1,22 @@
+#! /usr/bin/env sh
+
+main()
+{
+	tmp=$(mktemp)
+
+	if [ "${1:--}" = "-" ]
+	then
+		while read line
+		do
+			printf "%s" "$line" >> "$tmp"
+		done < /dev/stdin
+
+		file=$tmp
+	else
+		file=$1
+	fi
+
+	sed 's/\x1b\[[0-9;]*m//g' "$file"
+}
+
+main "$@"
