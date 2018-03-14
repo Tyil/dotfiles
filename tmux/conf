@@ -18,9 +18,9 @@ setw -g mode-keys vi
 bind p      paste-buffer
 bind Escape copy-mode
 
-bind -t vi-copy 'v'   begin-selection
-bind -t vi-copy 'y'   copy-selection
-bind -t vi-copy 'C-v' rectangle-toggle
+#bind -t vi-copy 'v'   begin-selection
+#bind -t vi-copy 'y'   copy-selection
+#bind -t vi-copy 'C-v' rectangle-toggle
 
 # ^a
 set -g prefix C-a
