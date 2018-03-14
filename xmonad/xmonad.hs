@@ -54,6 +54,7 @@ myManageHook = composeAll
              , className =? "qutebrowser" --> doShift "web"
              , className =? "virt-manager" --> doShift "vms"
              , className =? "Pale moon" --> doShift "web"
+             , className =? "Signal" --> doShift "social"
              ]
 
 myWorkspaces = ["work", "social", "web", "email", "entertainment", "vms", "games", "eight", "nine"]
@@ -140,3 +141,4 @@ main = do
          , workspaces = myWorkspaces
          }
 
+-- vim: ft=haskell et ts=4 sw=4
