@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
-if command -v rakudobrew > /dev/null 2>&1
+if command -v lonestar > /dev/null 2>&1
 then
-	[ "${DEBUG_DOTFILES}" ] && echo "Initializing Rakudobrew"
-	eval "$(rakudobrew init -)"
+	[ "${DEBUG_DOTFILES}" ] && echo "Initializing LoneStar"
+	eval "$(lonestar init)"
 fi

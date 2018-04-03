@@ -84,18 +84,6 @@ if [ -n "$(ruby -v > /dev/null 2>&1)" ]; then
 	fi
 fi
 
-# Add systemwide Rakudobrew if available
-if [ -d "/var/rakudobrew/bin" ]
-then
-	PATH="/var/rakudobrew/bin:$PATH"
-fi
-
-# Add user level Rakudobrew if available
-if [ -d "${HOME}/.local/var/rakudobrew/bin" ]
-then
-	PATH="${HOME}/.local/var/rakudobrew/bin:$PATH"
-fi
-
 # export the extended PATH
 export PATH
 
