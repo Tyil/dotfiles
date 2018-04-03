@@ -1,5 +1,5 @@
 [options]
-browser      = links-g
+browser      = firefox
 cursor_blink = off
 font         = Liberation Mono 9
 
