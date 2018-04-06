@@ -17,6 +17,7 @@ https://github.com/tobyS/vmustache                         ~/.vim/bundle/misc-vm
 https://github.com/jwalton512/vim-blade.git                ~/.vim/bundle/syntax-blade
 https://github.com/Glench/Vim-Jinja2-Syntax.git            ~/.vim/bundle/syntax-jinja
 https://github.com/mxw/vim-jsx.git                         ~/.vim/bundle/syntax-jsx
+https://github.com/chr4/nginx.vim.git                      ~/.vim/bundle/syntax-nginx
 https://github.com/vim-perl/vim-perl6.git                  ~/.vim/bundle/syntax-perl6
 https://github.com/StanAngeloff/php.vim                    ~/.vim/bundle/syntax-php
 https://github.com/aklt/plantuml-syntax.git                ~/.vim/bundle/syntax-plantuml
