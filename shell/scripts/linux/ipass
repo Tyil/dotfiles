@@ -12,10 +12,8 @@ main()
 		exit 2
 	fi
 
-	plain=$(pass show "${file}")
-
+	pass show "$file" | perl -pe 'chomp' | xdotool type --file -
 	notify-send -i "dialog-password" "ipass" "${file}"
-	xdotool type -- "${plain}"
 }
 
 main "$@"
